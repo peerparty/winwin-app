@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" type="text/css" href="css/fonts.css">
+<link rel="stylesheet" type="text/css" href="css/dots.css">
+<link rel="stylesheet" type="text/css" href="css/index.css">
+</head>
+<body>
+
+<audio id="fg-audio">
+  <source src="fg.mpeg" type="audio/mpeg">
+</audio>
+<audio id="bg-audio" loop>
+  <source src="bg.mpeg" type="audio/mpeg">
+</audio>
+
+<div id="content">
+</div>
+
+<div id="templates">
+  <!-- Welcome -->
+  <div class="welcome screen container">
+    <div class="swipeable">
+      <div class="panel">
+        <h1>welcome to</h1>
+      </div>
+      <div class="panel">
+        <h1>winwin zone</h1>
+      </div>
+      <div class="panel">
+        <h1>Join Next session</h1>
+        <div class="vcenter">
+          <img class="img-swipe" src="imgs/swipe_agree_pink.png">
+        </div>
+        <h1>swipe right to join</h1>
+      </div>        
+    </div>
+    <div class="swipeable"><h1>Joining...</h1></div>
+  </div>
+
+  <!-- Until next session -->
+  <div class="til screen">
+    <div class="panel"><h1>Until next session</h1></div>
+    <div class="panel"><h1 class="counter">--:--</h1></div>
+    <div class="panel">
+      <h1>Your spot is</h1>
+      <!-- <div class="dots bluedot vcenter"><span></span></div> -->
+    </div>
+    <div class="panel">
+      <h1>at the WINWIN.zone</h1>
+    </div>
+  </div>  
+
+  <!-- Tutorial -->
+  <div class="tutorial screen vcenter">
+    <div class="panel"><img class="tutorial" src="imgs/tutorial.gif" height="600px"><h1></h1></div>
+  </div>
+
+  <!-- Ready -->
+  <div class="ready screen container">
+    <div class="swipeable"><h1>Disagree</h1></div>
+    <div class="swipeable">
+      <div class="panel">
+        <h1>You are with</h1>
+        <h1><span>0</span> people</h1>
+        <h1>Do you want to start?</h1>
+      </div>
+      <div class="panel">
+        <div class="vcenter">
+          <img class="img-swipe" src="imgs/swipe_disagree_pink.png">
+          <img class="img-swipe" src="imgs/swipe_agree_pink.png">
+          <h1>Disagree / Agree</h1>
+        </div>
+      </div>
+    </div>
+    <div class="swipeable"><h1>Agree</h1></div>
+  </div>  
+
+  <!-- Statement/Question -->
+  <div class="question screen container">
+    <div class="swipeable"><h1>Disagree</h1></div>
+    <div class="swipeable">
+      <div class="panel yes vcenter">
+        <div class="panel agree"><h1>agree</h1></div>
+        <img class="img-swipe" src="imgs/swipe_agree_pink.png">
+      </div>
+      <div class="panel statement">
+          <h2 class="stmt">Friends should be shamed for flying</h2>
+      </div>
+      <div class="panel"><h1 class="counter">--:--</h1></div>
+      <div class="panel no vcenter">
+          <img class="img-swipe" src="imgs/swipe_disagree_pink.png"/>
+          <h1>Disagree</h1>
+      </div>
+    </div>
+    <div class="swipeable"><h1>Agree</h1></div>
+  </div>
+
+  <!-- Waiting -->
+  <div class="waiting screen">
+    <!--
+    <div class="panel vcenter question">
+      <h1>You responded</h1> 
+      <span class="answer">Agree</span>
+    </div>
+    -->
+    <div class="panel pleasewait">
+      <h3>Waiting for everyone to respond...</h3>
+    </div>  
+    <div class="panel"><h1 class="counter">--:--</h1></div>
+  </div>  
+
+  <!-- Prompt -->
+  <div class="prompt screen">
+    <div class="panel vcenter question"><h3></h3></div>
+    <div class="panel vcenter">
+      <h1>You responded</h1> 
+    </div>
+    <div class="panel vcenter question">
+      <span class="answer">Disagree</span>
+    </div>
+    <div class="panel provide">
+      <h3>Please provide a statement that explains your answer.</h3>
+    </div>
+    <div class="panel"><textarea placeholder="Write your statement here...."></textarea></div>
+    <div class="panel button submit"><h1>Submit</h1></div>
+  </div> 
+
+  <!-- Consensus -->
+  <div class="consensus screen container">
+    <div class="swipeable">
+      <div class="panel vcenter">
+        <h1>You have</h1>
+        <h1>consensus!!!!</h1>
+      </div>
+      <div class="panel vcenter consensustext">
+        <p>
+          You have at least reached 
+          5 times consensus in this
+          discussion.
+
+
+          Although you might differ in
+          opinions on this statement,
+          you have discovered enough 
+          common ground to make
+          decisions together.
+        </p>
+      </div>  
+      <div class="panel vcenter">
+        <h1>Results</h1>
+        <img class="img-swipe" src="imgs/swipe_agree_pink.png">
+      </div>
+    </div>
+    <div class="swipeable"><h1>Results</h1></div>
+  </div> 
+
+  <!-- No consensus -->
+  <div class="consensless screen">
+    <div class="panel vcenter">
+      <div class="panel vcenter ">
+        <h1>You unfortunately had no moments of consensus.</h1>
+        <h1>🙁🙁🙁</h1>
+      </div>  
+    <div class="panel"><br><br><img class="img-swipe" src="imgs/swipe_agree_pink.png"><h1>try again</h1></div>  
+    </div>
+  </div>  
+
+  <!-- Moments -->
+  <div class="moments screen">
+    <div class="panel"><h1>Your moments of consensus.</h1></div>
+    <div class="panel"><h1>🌈🌈🌈</h1></div>  
+    <div class="panel vcenter moments">
+      <ul>
+        <li>00:01 friends should be shamed for flying and i am talking more and more blabla</li>
+        <li>00:01 friends should be shamed for flying</li>
+        <li>00:01 friends should be shamed for flying</li>
+        <li>00:01 friends should be shamed for flying</li>
+        <li>00:01 friends should be shamed for flying</li>
+      </ul>
+    </div>
+  </div>
+
+</div>
+
+<script src="js/swipe.js"></script> 
+<script src="js/index.js"></script> 
+</body>
+</html>
+
+
