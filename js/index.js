@@ -125,6 +125,7 @@
   function showConsensless() {
     cleanup()
     showScreen('consensless') 
+    setupSwipe('consensless', 1)
   } 
 
   function showResults() {
@@ -138,10 +139,11 @@
     })
   }
 
-  function showNotEnough() {
+  function showError(msg) {
     cleanup()
-    showScreen('notenough') 
-    setupSwipe('notenough', 1)
+    showScreen('error') 
+    setupSwipe('error', 1)
+    document.querySelector('#content .error .msg').innerHTML = msg
   } 
 
   function sendResponse(res) {
@@ -184,9 +186,8 @@
         startTimer(counter, document.querySelector('#content .waiting .counter'))
       }
       else if(id == 'consensus') showResults()
-      else if(id == 'notenough') ws.send(JSON.stringify({ cmd: 'USER_HELLO' }))
+      else if(id == 'consensless' || id == 'error') window.location = window.location
     }, 3000)
-
   }
 
   // Websocket stuff - JBG
@@ -202,6 +203,7 @@
 
   ws.onclose = function(e) {
     console.log('Websocket closed.')
+    showError("ERROR: Something has gone terribly wrong.")
   }
 
   ws.onerror = function(e) {
@@ -232,7 +234,8 @@
         break
       case 'USER_DONE':
         results = res['data']
-        showConsensus()
+        if(results.length > 0) showConsensus()
+        else showConsensless()
         break
       case 'USER_JOIN':
         //Ask user if they would like to force start - JBG
@@ -245,7 +248,10 @@
         showTil(counter)
         break
       case 'USER_NOT_ENOUGH':
-        showNotEnough()
+        showError("Not enough people joined this session.")
+        break
+      case 'USER_ERROR':
+        showError("ERROR: Something has gone terribly wrong.")
         break
       default:
         console.log('Unknown CMD: ' + cmd)
