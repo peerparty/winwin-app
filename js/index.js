@@ -70,6 +70,8 @@
   function showTutorial() {
     cleanup()
     showScreen('tutorial')
+    const elm = document.querySelector('#bg-audio')
+    elm.paused ? elm.play() : elm.pause()
   } 
 
   function showReady(count) {
@@ -105,6 +107,7 @@
     document.querySelector('#content .prompt .submit').addEventListener('click', e => {
       // Ubermate and go - JBG
       document.querySelector('body').classList.add('ubermate')
+      buttonAudio()
       setTimeout(() => {
         sendPrompt(document.querySelector('#content .prompt textarea').value)
         showWaiting()
@@ -176,6 +179,7 @@
   function handleSwipe(screen, id) {
     // Ubermate then go - JBG
     document.querySelector('body').classList.add('ubermate')
+    buttonAudio()
     setTimeout(() => {
       showWaiting()
       console.log('handleSwipe', screen, id)
@@ -218,7 +222,7 @@
       case 'USER':
         userId = res['id']
         serverId = res['server_id']
-        console.log('User id: ' + userId )
+        console.log('User id: ' + userId)
         showTil(((res['start_time'] * 1000) - Date.now()) / 1000)
         break
       case 'USER_QUESTION':
@@ -234,12 +238,14 @@
         break
       case 'USER_DONE':
         results = res['data']
+        ws.close()
         if(results.length > 0) showConsensus()
         else showConsensless()
         break
       case 'USER_JOIN':
         //Ask user if they would like to force start - JBG
-        showReady(res['count'])
+        // Give the newest user a chance to check their color - JBG
+        setTimeout(() => showReady(res['count']), 5000)
         break
       case 'USER_TUTORIAL':
         showTutorial()
