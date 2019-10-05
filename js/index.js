@@ -4,6 +4,7 @@
   let userId = -1
   let serverId = -1
   let timerId
+  let results = []
 
   function buttonAudio() {
     var audio = new Audio('fg.mpeg')
@@ -15,7 +16,6 @@
       console.log('swipe', e.detail)
       handleSwipe(e.detail, e.explicitOriginalTarget.classList[0])
     })
-
   }
 
   function strPadLeft(str, pad, length) {
@@ -31,7 +31,7 @@
       const tstr = strPadLeft('' + minutes, '0', 2) +
         ":" +
         strPadLeft('' + seconds, '0', 2)
-      elm.innerHTML = tstr
+      if(elm) elm.innerHTML = tstr
     }, 1000)
   }
 
@@ -60,6 +60,11 @@
     cleanup()
     showScreen('til')
     startTimer(t, document.querySelector('#content .til .counter'))
+    let color = 'blue'
+    if(userId == 0) color = 'red'
+    if(userId == 1) color = 'green'
+    if(userId == 2) color = 'yellow'
+    document.querySelector('#content .bluedot span').classList.add(color)
   }
 
   function showTutorial() {
@@ -95,14 +100,18 @@
     document.querySelector('#content .prompt .answer').classList.add(ans ? 'yes' : 'no')
     document.querySelector('#content .prompt .answer').classList.remove(ans ? 'no' : 'yes')
     document.querySelector('#content .prompt textarea').focus()
+    startTimer(secs, document.querySelector('#content .prompt .counter'))
 
     document.querySelector('#content .prompt .submit').addEventListener('click', e => {
-      showWaiting()
       // Ubermate and go - JBG
-      setTimeout(() => sendPrompt(document.querySelector('textarea').value), 3000)
+      document.querySelector('body').classList.add('ubermate')
+      setTimeout(() => {
+        sendPrompt(document.querySelector('#content .prompt textarea').value)
+        showWaiting()
+        startTimer(counter, document.querySelector('#content .waiting .counter'))
+      }, 3000)
     })
 
-    //startTimer(secs, document.querySelector('#waiting .counter'))
   } 
 
   function showConsensus() {
@@ -110,6 +119,7 @@
     showScreen('consensus') 
     setupSwipe('consensus', 1)
     document.querySelector('body').classList.add('consensus')
+    document.querySelector('#content .consensus p span').innerHTML = results.length
   }  
 
   function showConsensless() {
@@ -117,11 +127,22 @@
     showScreen('consensless') 
   } 
 
-  function showMoments() {
+  function showResults() {
     cleanup()
-    showScreen('moments') 
-    document.querySelector('body').classList.add('consensus')
-  }          
+    showScreen('results')
+    results.forEach(r => {
+      const node = document.createElement('li')
+      const text = document.createTextNode(r)
+      node.appendChild(text)
+      document.querySelector('#content .results ul').appendChild(node)
+    })
+  }
+
+  function showNotEnough() {
+    cleanup()
+    showScreen('notenough') 
+    setupSwipe('notenough', 1)
+  } 
 
   function sendResponse(res) {
     ws.send(JSON.stringify({
@@ -158,7 +179,12 @@
       console.log('handleSwipe', screen, id)
       if(screen == 1 && id == 'welcome') ws.send(JSON.stringify({ cmd: 'USER_HELLO' }))
       else if(id == 'ready') sendResponse(screen ? 1 : 0)
-      else if(id == 'question') sendAnswer(screen ? 1 : 0)
+      else if(id == 'question') {
+        sendAnswer(screen ? 1 : 0)
+        startTimer(counter, document.querySelector('#content .waiting .counter'))
+      }
+      else if(id == 'consensus') showResults()
+      else if(id == 'notenough') ws.send(JSON.stringify({ cmd: 'USER_HELLO' }))
     }, 3000)
 
   }
@@ -205,7 +231,8 @@
         //showInstruction("Waiting for everyone to make a choice...")
         break
       case 'USER_DONE':
-
+        results = res['data']
+        showConsensus()
         break
       case 'USER_JOIN':
         //Ask user if they would like to force start - JBG
@@ -213,6 +240,12 @@
         break
       case 'USER_TUTORIAL':
         showTutorial()
+        break
+      case 'USER_WAIT':
+        showTil(counter)
+        break
+      case 'USER_NOT_ENOUGH':
+        showNotEnough()
         break
       default:
         console.log('Unknown CMD: ' + cmd)

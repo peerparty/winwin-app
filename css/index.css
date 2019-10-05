@@ -11,7 +11,7 @@ html, body {
 }
 
 body.consensus {
-  background: url("imgs/confetti.gif"); 
+  background: url("/imgs/confetti.gif"); 
 }
 
 h1 {  
@@ -185,7 +185,6 @@ textarea {
   width: 140px !important;
   height: 140px !important;
   left: calc(50% - 70px) !important;
-  background: #00f !important;
 }
 
 #instruction {
@@ -288,15 +287,19 @@ img.tutorial {
 }
 
 .red {
-  background: #f00;
+  background: #f00 !important;
 }
 
 .green {
-  background: #0f0;
+  background: #0f0 !important;
 }
 
 .blue {
-  background: #00f;
+  background: #00f !important;
+}
+
+.yellow {
+  background: #ffff00 !important;
 }
 
 .screen {

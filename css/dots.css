@@ -1,4 +1,4 @@
-.content {
+#content {
   position: relative;
   width: 100%;
   height: 100%;
@@ -6,30 +6,28 @@
   z-index: 6;
 }
 
-.content .dots {
+#content .dots {
   position: absolute;
   top: 0;
   left: 0;
 }
 
-.content .dots span {
-
+#content .dots span {
   position: absolute;
   border-radius: 50%;
-  background-image: #ffff00;
   border:2px solid #ff69b4;
   border-radius: 40% 80% 55% 45%/32% 53% 47% 80%;
   animation: vawe 7s linear infinite;
 }
 
-.content .dots span:nth-child(1) {
+#content .dots span:nth-child(1) {
   top: 120px;
   left: 280px;
   width: 75px;
   height: 65px;
 }
 
-.content .dots span:nth-child(2) {
+#content .dots span:nth-child(2) {
   top: 20px;
   left: 300px;
   width: 40px;
@@ -38,7 +36,7 @@
   transform: rotate(90deg);
 }
 
-.content .dots span:nth-child(3) {
+#content .dots span:nth-child(3) {
     top: 440px;
     left: 30px;
   width: 75px;
@@ -46,7 +44,7 @@
   border-radius: 40% 80% 55% 45%/32% 53% 47% 80%;
 }
 
-.content .dots span:nth-child(4) {
+#content .dots span:nth-child(4) {
   
     top: 145px;
     left: 30px;
@@ -56,7 +54,7 @@
   border-radius: 40% 80% 55% 45%/32% 53% 47% 80%;
 }
 
-.content .dots span:nth-child(5) {
+#content .dots span:nth-child(5) {
     top: 550px;
     left: 30px;
   width: 50px;
@@ -64,7 +62,7 @@
   border-radius: 40% 80% 55% 45%/32% 53% 47% 80%;
 }
 
-.content .dots span:nth-child(6) {
+#content .dots span:nth-child(6) {
     top: 30px;
     left: 25px;
   /*left: calc(100% - 350px);*/
@@ -72,7 +70,7 @@
   height: 65px;
 }
 
-.content .dots span:nth-child(7) {
+#content .dots span:nth-child(7) {
   top: 450px;
   left: 250px;
   width: 40px;
@@ -80,7 +78,7 @@
   border-radius: 40% 80% 55% 45%/32% 53% 47% 80%;
 }
 
-.content .dots span:nth-child(8) {
+#content .dots span:nth-child(8) {
     top: 500px;
     left: 300px;
   /*left: calc(100% - 350px);*/
