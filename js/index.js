@@ -197,9 +197,11 @@
 
   // Websocket stuff - JBG
 
-  //const ws = new WebSocket('wss://winwin.peerparty.org/ws/')
+  //const ws = new WebSocket('wss://winwin.zone/ws/')
   //const ws = new WebSocket('ws://localhost:8000/')
-  const ws = new WebSocket('ws://localhost/ws/')
+  //const ws = new WebSocket('ws://localhost/ws/')
+  const proto = window.location.protocol === 'https:' ? 'wss' : 'ws'
+  const ws = new WebSocket(`${proto}://${window.location.host}/ws/`)
 
   ws.onopen = function(e) {
     console.log('Websocket open.')
