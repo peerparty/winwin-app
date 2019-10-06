@@ -15,7 +15,7 @@
   function init() {
     document.addEventListener('swipe', e => {
       console.log('swipe', e.detail)
-      handleSwipe(e.detail, e.explicitOriginalTarget.classList[0])
+      handleSwipe(e.detail, document.querySelector('#content .screen').classList[0])
     })
   }
 
