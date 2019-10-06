@@ -127,6 +127,7 @@
         showInit(res)
         break
       case 'SCREEN_CONSENSUS':
+        console.log(res)
         showConsensus(res['data'])
         break
       case 'SCREEN_START':
@@ -134,6 +135,7 @@
         break
       case 'SCREEN_TREE':
         console.log('New Discussion Tree')
+        showTree(res)
         break
       case 'SCREEN_NOT_ENOUGH':
         console.log('Not enough users...')

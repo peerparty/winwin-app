@@ -59,7 +59,7 @@ function setupSwipe(clazz, screen) {
       let dx = unify(e).clientX - x0, 
         s = Math.sign(dx), 
         f = +(s*dx/w).toFixed(2)
-      
+
       ini = i - s*f
 
       if((i > 0 || s < 0) && (i < N - 1 || s > 0) && f > .2) {
