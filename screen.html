@@ -5,83 +5,136 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <style>
 
+* {
+  margin: 0;
+}
+
+html, body, #content, .screen {
+  height: 100%;
+  width: 100%;
+}
+
 body {
-  background: #f00;
+  background: #ff0;
+  overflow: hidden;
+  font-family: arial;
+  color: #ff69b4;
+}
+
+h1 {
+  z-index: -1;
+  position: fixed;
+  text-transform: uppercase;
+  word-wrap: break-word;
+  font-size: 100px;
+  word-wrap: break-word;
+  font-size: 400px;
+  text-align: center;
+  margin: 0;
+  -webkit-text-stroke: 1px #ff69b4;
+  color: #ff0;
+  left: 50%;
+  width: 50%;
+  transform: translateX(-50%);
+}
+
+h1.top {
+  top: 0;
+  transform: rotate(-180deg) translateX(50%);
+}
+
+h1.bottom {
+  bottom: 0;
+}
+
+.panel {
+  min-height: 300px;
+  min-width: 400px;
+  position:fixed;
+  animation-fill-mode: both;
+  font-size: 30px;
+
+  /* box-shadow: 0 0 30px #333; */
+}
+
+.panel .time {
+  background: #ff0;
+  border-bottom: 1px solid #ff69b4;
+  border: 1px solid #ff69b4;
+  padding: 0 20px 0 20px;
+}
+
+h2, .section {
+  background: #ff0;
+  text-align: center;
+  padding: 20px;
+  border: 1px solid #ff69b4;
+}
+
+.next-session .time {
+  padding: 20px;
+}
+
+.screen {
+  height: 100%;
+  width: 100%;
+}
+
+.screen .section {
+  position: absolute;
+  top: 50%;
+  width: 100%;
+}
+
+.screen h2 {
+  border: none;
+}
+
+.consensus {
+  background: url("/imgs/confetti.gif"); 
+}
+
+#templates {
+  display: none;
 }
 
 </style>
 </head>
 <body>
 
-<!--
-<div id="create">Create</div>
-<textarea></textarea>
-<div id="start">Start</div>
--->
+<div id="content">
+<h1 class="top">Win</h1>
+<h1 class="bottom">Win</h1>
+</div>
 
-<script>
+<div id="templates">
+  <div class="panel">
+    <span class="time">--:--</span>
+    <h2 class="stmt"></h2>
+  </div>
+  <div class="panel next-session">
+    <h2>Next session:</h2>
+    <h2 class="time">--:--</h2>
+  </div>
+  <div class="panel next-stmt">
+    <h2>Next discussion:</h2>
+    <h2 class="stmt"></h2>
+  </div>
+  <div class="consensus screen">
+    <div class="section">
+      <h2 class="stmt"></h2>
+    </div>
+  </div>
+  <div class="tree screen">
+    <div class="section">
+      <p></p>
+    </div>
+  </div>
 
+</div>
 
-(function() {
+<script src="js/screen.js"></script>
 
-  let secs = -1
-  //let serverId = -1
-
-  // Websocket stuff - JBG
-
-  //const ws = new WebSocket('wss://winwin.peerparty.org/ws/')
-  const ws = new WebSocket('ws://localhost:8000/')
-
-  ws.onopen = function(e) {
-    console.log('Websocket open.')
-    ws.send(JSON.stringify({ cmd: 'SCREEN_JOIN' }))
-  }
-
-  ws.onclose = function(e) {
-    console.log('Websocket closed.')
-  }
-
-  ws.onerror = function(e) {
-    console.log('Websocket errored.')
-  }
-
-  ws.onmessage = function(e) {
-    console.log(e.data)
-    const res = JSON.parse(e.data)
-    const cmd = res['cmd']
-    switch(cmd) {
-      case 'SCREEN_INIT':
-        console.log('SERVER ID:', res['id'])
-        console.log('data:', res['data'])
-        console.log('start_time:', res['start_time'])
-        secs = parseInt(res['start_time'] - (new Date().getTime() / 1000))
-        break
-      case 'SCREEN_CONSENSUS':
-        console.log('CONSENSUS:', res['data'])
-        break
-      case 'SCREEN_START':
-        console.log('Session is starting...')
-        break
-      case 'SCREEN_TREE':
-        console.log('New Discussion Tree')
-        break
-      case 'SCREEN_NOT_ENOUGH':
-        console.log('Not enough users...')
-        break
-      default:
-        console.log('Unknown CMD: ' + cmd)
-        break
-    }
-  }
-
-  setInterval(() => {
-    secs -= 1
-    console.log(`Starts in ${secs} seconds`)
-  }, 1000)
-
-})()
-
-</script>
 </body>
 </html>
 

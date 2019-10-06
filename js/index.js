@@ -5,6 +5,7 @@
   let serverId = -1
   let timerId
   let results = []
+  let done = false
 
   function buttonAudio() {
     var audio = new Audio('fg.mpeg')
@@ -207,7 +208,7 @@
 
   ws.onclose = function(e) {
     console.log('Websocket closed.')
-    showError("ERROR: Something has gone terribly wrong.")
+    if(!done) showError("ERROR: Something has gone terribly wrong.")
   }
 
   ws.onerror = function(e) {
@@ -237,6 +238,7 @@
         //showInstruction("Waiting for everyone to make a choice...")
         break
       case 'USER_DONE':
+        done = true
         results = res['data']
         ws.close()
         if(results.length > 0) showConsensus()
