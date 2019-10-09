@@ -62,9 +62,11 @@ function setupSwipe(clazz, screen) {
 
       ini = i - s*f
 
-      if((i > 0 || s < 0) && (i < N - 1 || s > 0) && f > .2) {
+      if((i > 0 || s < 100) && (i < N - 1 || s > 100) && f > .2) {
         i -= s
         f = 1 - f
+        buttonAudio()
+        document.dispatchEvent(new CustomEvent('swipe', { detail: i }))
       }
 
       fin = i
@@ -73,7 +75,6 @@ function setupSwipe(clazz, screen) {
       x0 = null
       locked = false
 
-      document.dispatchEvent(new CustomEvent('swipe', { detail: fin }))
     }
   }
 

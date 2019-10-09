@@ -7,11 +7,6 @@
   let results = []
   let done = false
 
-  function buttonAudio() {
-    const audio = new Audio('fg.mpeg')
-    audio.play()
-  }
-
   function init() {
     document.addEventListener('swipe', e => {
       console.log('swipe', e.detail)
@@ -180,7 +175,7 @@
   function handleSwipe(screen, id) {
     // Ubermate then go - JBG
     document.querySelector('body').classList.add('ubermate')
-    buttonAudio()
+    //buttonAudio()
     setTimeout(() => {
       showWaiting()
       console.log('handleSwipe', screen, id)
