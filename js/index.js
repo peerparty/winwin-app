@@ -184,7 +184,15 @@
     setTimeout(() => {
       showWaiting()
       console.log('handleSwipe', screen, id)
-      if(screen == 1 && id == 'welcome') ws.send(JSON.stringify({ cmd: 'USER_HELLO' }))
+      if(screen == 1 && id == 'welcome') {
+        const sid = getCookie('server_id')
+        const uid = getCookie('user_id')
+        ws.send(JSON.stringify({
+          cmd: 'USER_HELLO',
+          server_id: sid ? parseInt(sid.split(' ')[0]) : -1,
+          user_id: uid ? parseInt(uid.split(' ')[0]) : -1
+        }))
+      }
       else if(id == 'ready') sendResponse(screen ? 1 : 0)
       else if(id == 'question') {
         sendAnswer(screen ? 1 : 0)
@@ -225,6 +233,9 @@
       case 'USER':
         userId = res['id']
         serverId = res['server_id']
+        setCookie('server_id', serverId, 1)
+        setCookie('user_id', userId, 1)
+        console.log(document.cookie)
         console.log('User id: ' + userId)
         showTil(((res['start_time'] * 1000) - Date.now()) / 1000)
         break
