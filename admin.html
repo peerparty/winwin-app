@@ -4,15 +4,124 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <style>
+
+body{
+background-color: #fffd37; /*yellow*/
+
+}
+
+
+#create:hover{ 
+ background-color: #7fed58;
+}
+
+#create:active {
+ background-color: #7fed58; 
+}
+
+
+#start:hover{ 
+ background-color: #7fed58;
+}
+
+#start:active {
+ background-color: #7fed58; 
+}
+
+
+
+
+
+
+#explaination {
+  background-color: none; 
+  border: 1px solid #fd6cb4; 
+  color: #fd6cb4;
+  padding: 10px 10px;
+  text-align: left;
+  text-transform: uppercase;
+  line-height: 25px;
+  display: fixed;
+  font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
+  font-size: 16px;
+  margin-top: 10px;
+}
+
+#start {
+background-color: #fd6cb4;
+  color: white;
+  padding: 8px 30px;
+  text-align: center;
+  display: inline-block;
+  font-size: 16px;
+  font-family: arial;
+  font-size: 30px;
+  border-radius: 30px;
+  margin-top: 25px;
+  text-transform: uppercase;
+}
+
+
+#create {
+  background-color: #fd6cb4;
+  color: white;
+  padding: 10px 32px;
+  text-align: center;
+  display: inline-block;
+  font-family: arial;
+  font-size: 20px;
+  border-radius: 30px;
+  margin-top: 25px;
+  margin-bottom: 25px;
+  text-transform: uppercase;
+}
+
+
+#textarea {
+  overflow: hidden;
+  padding: 10px;
+  outline: none;
+  
+  margin-left: 12px;
+  margin-top: 15px;
+  margin-bottom: 10px;
+  border: 1px solid #fd6cb4; 
+  width: 330px;
+  height: 123px;
+  font-family: arial;
+  font-size: 18px;
+  background-color: white;
+  
+
+}
+
+
+
 </style>
 </head>
 <body>
 
-<div id="create">Create</div>
-<textarea></textarea>
-<div id="start">Start</div>
+<div id="explaination">
+Step 1 : Write statement in text area
+</div>
+<textarea id="textarea" placeholder="Write statement here"></textarea>
+
+
+<div id="explaination" >
+Step 2 : Click "create statement"
+</div>
+
+<button id="create">Create statement</button>
+
+
+<div id="explaination">
+Step 3 : Then click start
+</div>
+<button id="start">Start</button>
+
 
 <script>
+
 
 (function() {
 
@@ -21,7 +130,7 @@
   // Websocket stuff - JBG
 
   //const ws = new WebSocket('wss://winwin.peerparty.org/ws/')
-  const ws = new WebSocket('ws://localhost:8000/')
+  const ws = new WebSocket('ws://localhost:8000')
 
   ws.onopen = function(e) {
     console.log('Websocket open.')

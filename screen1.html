@@ -1,0 +1,767 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+/*The difference between an ID and a class is that an ID can be used to identify one element, whereas a class can be used to identify more than one.
+
+#text {.                   = id
+
+}
+
+.counter {.              =class
+ 
+
+
+
+          #ff69b4; = PINK
+          #ffff00; = YELLOW
+          #18ff00; = GREEN FOR REFERENCE COLOR
+          #ff0000; = RED FOR REFERENCE COLOR
+}*/
+
+
+/*@media screen and (min-width: 480px) {
+            body {
+                background-color: #ffff00;
+                width: 90vw;
+                height: 90vh;
+                
+            }
+
+          */
+body {
+          width: 100%;
+          background-color: #ffff00;
+        }
+          
+@import url("https://p.typekit.net/p.css?s=1&k=quh2hzs&ht=tk&f=17023.17029.21633.21638&a=2698245&app=typekit&e=css");
+
+@font-face {
+font-family:"tablet-gothic";
+src:url("https://use.typekit.net/af/9e2513/000000000000000000014357/27/l?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=n4&v=3") format("woff2"),url("https://use.typekit.net/af/9e2513/000000000000000000014357/27/d?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=n4&v=3") format("woff"),url("https://use.typekit.net/af/9e2513/000000000000000000014357/27/a?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=n4&v=3") format("opentype");
+font-display:auto;font-style:normal;font-weight:400;
+}
+
+@font-face {
+font-family:"tablet-gothic";
+src:url("https://use.typekit.net/af/42e553/00000000000000000001435b/27/l?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=n7&v=3") format("woff2"),url("https://use.typekit.net/af/42e553/00000000000000000001435b/27/d?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=n7&v=3") format("woff"),url("https://use.typekit.net/af/42e553/00000000000000000001435b/27/a?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=n7&v=3") format("opentype");
+font-display:auto;font-style:normal;font-weight:700;
+}
+
+@font-face {
+font-family:"tablet-gothic";
+src:url("https://use.typekit.net/af/1fbbd5/00000000000000000001435c/27/l?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=i7&v=3") format("woff2"),url("https://use.typekit.net/af/1fbbd5/00000000000000000001435c/27/d?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=i7&v=3") format("woff"),url("https://use.typekit.net/af/1fbbd5/00000000000000000001435c/27/a?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=i7&v=3") format("opentype");
+font-display:auto;font-style:italic;font-weight:700;
+}
+
+@font-face {
+font-family:"tablet-gothic";
+src:url("https://use.typekit.net/af/d1ab34/000000000000000000014358/27/l?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=i4&v=3") format("woff2"),url("https://use.typekit.net/af/d1ab34/000000000000000000014358/27/d?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=i4&v=3") format("woff"),url("https://use.typekit.net/af/d1ab34/000000000000000000014358/27/a?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=i4&v=3") format("opentype");
+font-display:auto;font-style:italic;font-weight:400;
+}
+
+.tk-tablet-gothic { font-family: "tablet-gothic",sans-serif; }
+
+
+
+@keyframes panelConsensuscontainer1 {/*riends should be shamed for fly*/
+  from {
+    margin-top: 40%;
+    margin-left: 40%;
+    width: 100%;
+  }
+
+  75% {
+    margin-top: 5%;
+    margin-left: 25%;
+    width: 100%;
+  }
+
+  to {
+    margin-top: 45%;
+    margin-left: 0%;
+    width: 100%;
+  }
+}
+
+
+
+
+@keyframes panelConsensuscontainer2 {/*people need to see their parents*/
+  from {
+    margin-top: 20%;
+    margin-left: 70%;
+    width: 100%;
+  }
+
+  75% {
+    margin-top: 5%;
+    margin-left: 50%;
+    width: 100%;
+  }
+
+  to {
+    margin-top: 10%;
+    margin-left: 30%;
+    width: 100%;
+  }
+}
+
+
+
+@keyframes panelConsensuscontainer3 {/*why is not working*/
+  from {
+    margin-top: 50%;
+    margin-left: 60%;
+    width: 100%;
+  }
+
+  75% {
+    margin-top: 45%;
+    margin-left: 10%;
+    width: 100%;
+  }
+
+  to {
+    margin-top: 85%;
+    margin-left: 20%;
+    width: 100%;
+  }
+}
+
+
+@keyframes panelConsensuscontainer4 {/* greenflyin*/
+  from {
+    margin-top: 30%;
+    margin-left: 50%;
+    width: 100%;
+  }
+
+  75% {
+    margin-top: 65%;
+    margin-left: 20%;
+    width: 100%;
+  }
+
+  to {
+    margin-top: 100%;
+    margin-left: 40%;
+    width: 100%;
+  }
+}
+
+
+          @keyframes panelNextPerformanceContainer {/*people need to see their parents*/
+            from {
+              margin-top: 36%;
+              margin-left: 12%;
+              width: 100%;
+            }
+
+            75% {
+              margin-top: 40%;
+              margin-left: 1%;
+              width: 100%;
+            }
+
+            to {
+              margin-top: 60%;
+              margin-left: 20%;
+              width: 100%;
+            }
+          }
+
+          @keyframes panelNextStatementContainer {/*people need to see their parents*/
+            from {
+              margin-top: 12%;
+              margin-left: 28%;
+              width: 100%;
+            }
+
+            75% {
+              margin-top: 5%;
+              margin-left: 34%;
+              width: 100%;
+            }
+
+            to {
+              margin-top: 10%;
+              margin-left: 10%;
+              width: 100%;
+            }
+          }
+                    @keyframes panelLastStatementContainer {/*friends should be shamed*/
+            from {
+              margin-top: 20%;
+              margin-left: 70%;
+              width: 100%;
+            }
+
+            75% {
+              margin-top: 35%;
+              margin-left: 50%;
+              width: 100%;
+            }
+
+            to {
+              margin-top: 40%;
+              margin-left: -10%;
+              width: 100%;
+            }
+          }
+
+
+      .title {
+        width: 100%;
+        height: 100%;
+        text-align: center !important;
+        font-size: 400px;  
+        line-height: 360px;
+        text-transform: uppercase;
+        text-shadow: -1px 0 #ff69b4, 0 1px #ff69b4, 1px 0 #ff69b4, 0 -1px #ff69b4;
+        position: fixed;
+        /*font-family: arial;*/
+        font-family:"tablet-gothic";
+        color: #ffff00;
+        background-color: #ffff00;
+        letter-spacing: 0px;
+        
+        
+        margin-left: -10px;
+        margin-top: -120px;
+}
+
+
+
+#panelConsensusContainer1{  
+  position: absolute;
+  -webkit-animation-name: panelConsensuscontainer1;
+  -webkit-animation-duration: 4s; 
+  animation-name: panelConsensuscontainer1;
+  animation-duration: 4s;
+  z-index: 1;
+  margin-left: 0px;
+  height: 100%;
+  background-color: none; 
+  padding: 2px;
+  animation-fill-mode: forwards;
+}
+
+#panelConsensusContainer2{  
+  position: absolute;
+  -webkit-animation-name: panelConsensuscontainer2; 
+  -webkit-animation-duration: 4s; 
+  animation-name: panelConsensuscontainer2;
+  animation-duration: 4s;
+  animation-fill-mode: forwards;
+  z-index: 2;  
+  margin-left: 0px;
+  height: 100%;
+  background-color: none; 
+  padding: 2px;
+  
+}
+#panelConsensusContainer3{  
+position: absolute;
+  -webkit-animation-name: panelConsensuscontainer3; 
+  -webkit-animation-duration: 4s; 
+  animation-name: panelConsensuscontainer3;
+  animation-duration: 4s;
+  animation-fill-mode: forwards;
+
+z-index: 3;
+
+  margin-left: 0px;
+  height: 100%;
+  background-color: none; 
+  padding: 2px;
+}
+#panelConsensuscontainer4{  /*green flying*/
+position: absolute;
+  -webkit-animation-name: panelConsensuscontainer4;
+  -webkit-animation-duration: 4s; 
+  animation-name: panelConsensuscontainer4;
+  animation-duration: 4s;
+  animation-fill-mode: forwards;
+
+z-index: 4;
+
+  margin-left: 0px;
+  height: 100%;
+  background-color: none; 
+  padding: 2px;
+}
+
+                      #panelConsensus{  
+                        z-index:1;
+                        border: 1px solid #ff69b4;
+                        position: absolute;
+                          /*display: inline-block;*/
+                          /*position: absolute;*/
+                        
+                        width:40%;
+                        background-color: #ffff00; 
+                        color: #ff69b4;
+                        text-align: center;
+                        /*font-family: arial;*/
+                        font-family:"tablet-gothic";
+                        font-size: 40px;  
+                        text-transform: uppercase;
+                        padding: 8px;
+                }
+                      #panelConsensusTime{  
+                        border: 1px solid #ff69b4;
+                        position: absolute;
+                        z-index: 2; 
+                        height: 30px;
+                        margin-left: 20px;
+                        margin-top: -20px;
+                        width:15%;
+                        background-color: #ffff00; 
+                        color: #ff69b4;
+                        text-align: center;
+                        /*font-family: arial;*/
+                        font-family:"tablet-gothic";
+                        font-size: 20px;  
+                        text-transform: uppercase;
+                        
+                }
+
+
+
+#panelNextPerformanceContainer{  
+  position: absolute;
+  -webkit-animation-name: panelNextPerformanceContainer; 
+  -webkit-animation-duration: 4s; 
+  animation-name: panelNextPerformanceContainer;
+  animation-duration: 4s;
+  animation-fill-mode: forwards;
+  height: 50%;
+  background-color: none; 
+  display: block;
+  position: relative;
+}
+
+        #panelNextPerformance{  
+        z-index:8;
+        border: 1px solid #ff69b4;
+        position: relative;
+        width: 40%;
+        background-color: #ffff00; 
+        color: #ff69b4;
+        text-align: center;       
+        font-family:"tablet-gothic";
+        font-size: 50px;  
+        text-transform: uppercase;
+        padding: 2px;
+}
+
+        .counter{  /*panelNextPerformanceTimer*/
+        font-size: 35px; 
+        letter-spacing: 2px; 
+        border: 1px solid #ff69b4;
+        position: relative;       
+        height: 50%;
+        margin-left: 60px;
+        width: 15%;
+        background-color: #ffff00; 
+        color: #ff69b4;
+        text-align: center;
+        font-family:"tablet-gothic";
+        text-transform: uppercase;
+}
+
+
+
+
+#panelNextStatementContainer{  
+  position: absolute;
+  -webkit-animation-name: panelNextStatementContainer;
+  -webkit-animation-duration: 4s; 
+  animation-name: panelNextStatementContainer;
+  animation-duration: 4s;
+  animation-fill-mode: forwards;
+  margin-left: 200px;
+  height: 50%;
+  background-color: none; 
+  padding: 2px;
+  display: block;
+  position: relative;
+}
+
+        #panelNextStatement{   
+        z-index:9;
+        border: 1px solid #ff69b4;
+        position: relative;
+          
+        height: 50%;
+        width:50%;
+        background-color: #ffff00; 
+        color: #ff69b4;
+        text-align: center;
+        /*font-family: arial;*/
+        font-family:"tablet-gothic";
+        font-size: 30px;  
+        text-transform: uppercase;
+        
+}
+        #panelNextStatementTitle{ 
+        z-index:9;
+        font-size: 25px; 
+        letter-spacing: 2px; 
+        border: 1px solid #ff69b4;
+        position: relative;   
+        height: 50%;
+        margin-left: 60px;
+        width: 40%;
+        background-color: #ffff00; 
+        color: #ff69b4;
+        text-align: center;
+        font-family:"tablet-gothic";
+        text-transform: uppercase;
+        
+}
+
+
+
+
+
+#panelLastStatementContainer{  
+  position: absolute;
+  -webkit-animation-name: panelLastStatementContainer; 
+  -webkit-animation-duration: 4s; 
+  animation-name: panelLastStatementContainer;
+  animation-duration: 4s;
+  animation-fill-mode: forwards;
+  margin-left: 200px;
+  height: 50%;
+  background-color: none; 
+  padding: 2px;
+  display: block;
+  position: relative;
+}
+
+        #panelLastStatement{   
+        z-index:10;
+        border: 1px solid #ff69b4;
+        position: relative;
+          
+        height: 50%;
+        width:50%;
+        background-color: #ffff00; 
+        color: #ff69b4;
+        text-align: center;
+        /*font-family: arial;*/
+        font-family:"tablet-gothic";
+        font-size: 30px;  
+        text-transform: uppercase;
+        
+}
+        #panelLastStatementTimer{ 
+        z-index:10;
+        font-size: 25px; 
+        letter-spacing: 2px; 
+        border: 1px solid #ff69b4;
+        position: relative;
+        height: 50%;
+        margin-left: 60px;
+        width: 40%;
+        background-color: #ffff00; 
+        color: #ff69b4;
+        text-align: center;
+        font-family:"tablet-gothic";
+        text-transform: uppercase;
+        
+}
+
+#panelParticipantsLeftContainer{  
+  position: absolute;
+  -webkit-animation-name: panelLastStatementContainer; 
+  -webkit-animation-duration: 4s; 
+  animation-name: panelLastStatementContainer;
+  animation-duration: 4s;
+  animation-fill-mode: forwards;
+  margin-left: 200px;
+  height: 50%;
+  background-color: none; 
+  padding: 2px;
+  display: block;
+  position: relative;
+}
+
+        #panelParticipantsLeftTitle{   
+        z-index:10;
+        border: 1px solid #ff69b4;
+        position: relative;
+          
+        height: 50%;
+        width:50%;
+        background-color: #ffff00; 
+        color: #ff69b4;
+        text-align: center;
+        /*font-family: arial;*/
+        font-family:"tablet-gothic";
+        font-size: 30px;  
+        text-transform: uppercase;
+        
+}
+        #panelParticipantsLeft{ 
+        z-index:10;
+        font-size: 55px; 
+        letter-spacing: 2px; 
+        border: 1px solid #ff69b4;
+        position: relative;
+        height: 50%;
+        margin-left: 60px;
+        width: 10%;
+        background-color: #ffff00; 
+        color: #ff69b4;
+        text-align: center;
+        font-family:"tablet-gothic";
+        text-transform: uppercase;
+        
+}
+
+
+
+
+</style>
+</head>
+<body>
+     
+
+    
+
+    <div class="title"> 
+    mom<br>
+    ents <br>
+    ofco<br>
+    nsen<br>
+    sus<br>
+    
+    </div>
+
+
+
+
+
+                                <div id="ParticipantsLeftContainer" class="aniPanel">
+                                  <div id="panelParticipantsLeftTitle">Slots left for next performance</div>
+                                  <div id="panelParticipantsLeft">2</div>
+                                </div>
+
+
+
+
+                                <div id="panelConsensusContainer1" class="aniPanel">
+                                  <div id="panelConsensusTime">11:22:33</div>
+                                  <div id="panelConsensus">friends should be shamed for flying</div>
+                                </div>
+                                             
+
+
+                                
+                                <div id="panelConsensusContainer2" class="aniPanel">
+                                  <div id="panelConsensusTime">11:22:33</div>
+                                  <div id="panelConsensus">🌈🌈🌈🌈should we use emojis to communicate life?🌈🌈🌈🌈</div>
+                                </div>
+                                              
+
+
+                                
+                                <div id="panelConsensusContainer3" class="aniPanel">
+                                  <div id="panelConsensusTime">11:22:33</div>
+                                  <div id="panelConsensus">jeej it is working 💜</div>
+                                </div>
+        
+
+                                
+                                <div id="panelConsensuscontainer4" class="aniPanel">
+                                  <div id="panelConsensusTime">11:22:33</div>
+                                  <div id="panelConsensus">maybe we should introduce greenflyin✈️🍄🍄🍄🍄🍄🍄🍄🍄</div>
+                                </div>
+                                
+                                               
+
+            <div id="panelNextStatementContainer" class="aniPanel">
+              <div id="panelNextStatementTitle">Next Statement</div>
+              <div id="panelNextStatement">Cars should be forbidden</div>
+            </div>            
+  
+
+
+        <div id="panelLastStatementContainer" class="aniPanel">
+          <div id="panelLastStatementTimer">last Statement</div>
+          <div id="panelLastStatement">friends should be shamed for flying</div>
+        </div>              
+
+ <div id="panelNextPerformanceContainer" class="aniPanel">
+    <div class="counter"></div>
+    <div id="panelNextPerformance">Till next performance</div>
+  </div>  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script>
+
+
+  let counter
+
+function startCounter(t) {
+  counter = t 
+  document.querySelector('.counter').style.display = 'block'
+}
+
+function stopTimer() {
+  document.querySelector('.counter').style.display = 'none'
+}
+
+function strPadLeft(str, pad, length) {
+    return (new Array(length + 1).join(pad) + str).slice(-length)
+}
+
+setInterval(() => {
+  const time = --counter
+  const minutes = Math.floor(time / 60)
+  const seconds = time - minutes * 60
+  document.querySelector('.counter').innerHTML = strPadLeft(minutes, '0', 2) +
+    ":" +
+    strPadLeft(seconds, '0', 2)
+  }, 1000)
+
+startCounter(600)
+
+
+
+
+
+
+window.onload = () => {
+  startSetTimeoutAnimation();
+  startAnimFrameAnimation();
+  startAnimFrameAnimation1();
+};
+
+function startSetTimeoutAnimation() {
+  const refreshRate = 1000 / 60;
+  const maxXPosition = 400;
+  let rect = document.getElementById('panelNextPerformanceContainer');
+  let speedX = 1;
+  let positionX = 0;
+
+  window.setInterval(() => {
+    positionX = positionX + speedX;
+    if (positionX > maxXPosition || positionX < 0) {
+      speedX = speedX * (-1);
+    }
+    rect.style.left = positionX + 'px';
+
+  }, refreshRate);
+}
+
+function startAnimFrameAnimation() {
+  const refreshRate = 1000 / 60;
+  const maxXPosition = 400;
+  let rect = document.getElementById('panelNextStatementContainer');
+  let speedX = 1;
+  let positionX = 0;
+
+  function step() {
+    positionX = positionX + speedX;
+    if (positionX > maxXPosition || positionX < 0) {
+      speedX = speedX * (-1);
+    }
+    rect.style.left = positionX + 'px';
+    window.requestAnimationFrame(step);
+  }
+
+  window.requestAnimationFrame(step);
+}
+
+
+
+function startAnimFrameAnimation1() {
+  const refreshRate = 1000 / 60;
+  const maxXPosition = 400;
+  let rect = document.getElementById('panelLastStatementContainer');
+  let speedX = 1;
+  let positionX = 0;
+
+  function step() {
+    positionX = positionX + speedX;
+    if (positionX > maxXPosition || positionX < 0) {
+      speedX = speedX * (-1);
+    }
+    rect.style.left = positionX + 'px';
+    window.requestAnimationFrame(step);
+  }
+
+  window.requestAnimationFrame(step);
+}
+
+
+
+
+
+  // const getRandomPercent = () => (((Math.random() * 200) + 1) - 100)
+
+  // const panels = document.querySelectorAll('.aniPanel')
+  // panels.forEach(e => {
+  //   e.animate([
+      
+  //   {
+  //     'margin-top': getRandomPercent(),
+  //     'margin-left': getRandomPercent(),
+  //     'width': '100%'
+  //   },
+  //   {
+  //     'margin-top': getRandomPercent(),
+  //     'margin-left': getRandomPercent(),
+  //     'width': '100%'
+  //   },
+  //   {
+  //     'margin-top': getRandomPercent(),
+  //     'margin-left': getRandomPercent(),
+  //     'width': '100%'
+  //   }
+    
+  //     { transform: 'translate3D(' + getRandomPercent() + '% , ' + getRandomPercent() + '%, 0)'},
+  //     { transform: 'translate3D(' + getRandomPercent() + '% , ' + getRandomPercent() + '%, 0)'},
+  //     // { transform: 'translate3D(' + getRandomPercent() + '% , ' + getRandomPercent() + '%, 0)'}, 
+  //     { transform: 'translate3D(' + getRandomPercent() + '% , ' + getRandomPercent() + '%, 0)' + getRandomPercent() + '% , "'}, 
+  //   ],
+  //   {
+  //     duration: 1000,
+  //     iterations: Infinity
+  //   })
+  // })
+
+
+</script>
+
+
+
+
+
+
+<!-- </div> -->
+</body>

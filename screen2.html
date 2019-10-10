@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+/*The difference between an ID and a class is that an ID can be used to identify one element, whereas a class can be used to identify more than one.
+
+#text {.                   = id
+
+}
+
+.counter {.              =class
+ 
+
+
+
+          #ff69b4; = PINK
+          #ffff00; = YELLOW
+          #18ff00; = GREEN FOR REFERENCE COLOR
+          #ff0000; = RED FOR REFERENCE COLOR
+}*/
+
+
+/*@media screen and (min-width: 480px) {
+            body {
+                background-color: #ffff00;
+                width: 90vw;
+                height: 90vh;
+                
+            }
+
+          */
+body {
+          width: 100%;
+          background-color: #ffff00;
+        }
+          
+@import url("https://p.typekit.net/p.css?s=1&k=quh2hzs&ht=tk&f=17023.17029.21633.21638&a=2698245&app=typekit&e=css");
+
+@font-face {
+font-family:"tablet-gothic";
+src:url("https://use.typekit.net/af/9e2513/000000000000000000014357/27/l?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=n4&v=3") format("woff2"),url("https://use.typekit.net/af/9e2513/000000000000000000014357/27/d?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=n4&v=3") format("woff"),url("https://use.typekit.net/af/9e2513/000000000000000000014357/27/a?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=n4&v=3") format("opentype");
+font-display:auto;font-style:normal;font-weight:400;
+}
+
+@font-face {
+font-family:"tablet-gothic";
+src:url("https://use.typekit.net/af/42e553/00000000000000000001435b/27/l?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=n7&v=3") format("woff2"),url("https://use.typekit.net/af/42e553/00000000000000000001435b/27/d?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=n7&v=3") format("woff"),url("https://use.typekit.net/af/42e553/00000000000000000001435b/27/a?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=n7&v=3") format("opentype");
+font-display:auto;font-style:normal;font-weight:700;
+}
+
+@font-face {
+font-family:"tablet-gothic";
+src:url("https://use.typekit.net/af/1fbbd5/00000000000000000001435c/27/l?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=i7&v=3") format("woff2"),url("https://use.typekit.net/af/1fbbd5/00000000000000000001435c/27/d?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=i7&v=3") format("woff"),url("https://use.typekit.net/af/1fbbd5/00000000000000000001435c/27/a?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=i7&v=3") format("opentype");
+font-display:auto;font-style:italic;font-weight:700;
+}
+
+@font-face {
+font-family:"tablet-gothic";
+src:url("https://use.typekit.net/af/d1ab34/000000000000000000014358/27/l?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=i4&v=3") format("woff2"),url("https://use.typekit.net/af/d1ab34/000000000000000000014358/27/d?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=i4&v=3") format("woff"),url("https://use.typekit.net/af/d1ab34/000000000000000000014358/27/a?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=i4&v=3") format("opentype");
+font-display:auto;font-style:italic;font-weight:400;
+}
+
+.tk-tablet-gothic { font-family: "tablet-gothic",sans-serif; }
+
+
+
+@keyframes container1 {/*riends should be shamed for fly*/
+  from {
+    margin-top: 40%;
+    margin-left: 40%;
+    width: 100%;
+  }
+
+  75% {
+    margin-top: 5%;
+    margin-left: 25%;
+    width: 100%;
+  }
+
+  to {
+    margin-top: 45%;
+    margin-left: 0%;
+    width: 100%;
+  }
+}
+
+
+
+
+
+.title {
+  width: 100%;
+  height: 100%;
+  text-align: center !important;
+  font-size: 800px;  
+  line-height: 360px;
+  text-transform: uppercase;
+  text-shadow: -1px 0 #ff69b4, 0 1px #ff69b4, 1px 0 #ff69b4, 0 -1px #ff69b4;
+  /*position: fixed;*/
+  position: absolute;
+  font-family:"tablet-gothic"!important;
+  color: #ffff00;
+  background-color: none;
+  letter-spacing: 0px;
+  
+  
+  margin-left: -10px;
+  margin-top: -120px;
+}
+
+
+
+
+.container2{  
+  height: 50%;
+  background-color: none; 
+
+  
+}
+
+
+.counter{  /*panelNextPerformanceTimer*/
+  font-size: 35px; 
+  letter-spacing: 2px; 
+  border: 1px solid #ff69b4;
+  position: relative;       
+  height: 50%;
+  margin-left: 60px;
+  width: 15%;
+  background-color: #ffff00; 
+  color: #ff69b4;
+  text-align: center;
+  font-family:"tablet-gothic";
+  text-transform: uppercase;
+}
+
+
+
+.statements {   
+  margin:10px;
+  z-index:10;
+  border: 1px solid #ff69b4;
+  position: relative;
+  padding-left: 5px;
+  height: 50%;
+  width:40%;
+  background-color: #ffff00; 
+  color: #ff69b4;
+  text-align: left;
+  font-family:"tablet-gothic";
+  font-size: 25px;  
+  text-transform: uppercase;
+
+}
+.stitle{
+  
+  border: 1px solid #ff69b4;
+  
+    
+  height: 50%;
+  width:50%;
+  background-color: #ffff00; 
+  color: #ff69b4;
+  text-align: center;
+  /*font-family: arial;*/
+  font-family:"tablet-gothic";
+  font-size: 50px;  
+  text-transform: uppercase;
+
+}
+
+
+
+
+.container {
+  position: fixed;
+  width: 500px;
+  text-align: center;
+}
+
+
+
+ 
+.progress2 {
+  padding: 6px;
+  border-radius: 30px;
+  background: rgba(0, 0, 0, 0.05);  
+  box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.25), 0 1px rgba(255, 255, 255, 0.08);
+}
+
+.progress-bar2 {
+  height: 30px;
+  border-radius: 30px;
+  background-image: 
+  linear-gradient(to bottom, rgba(255, 255, 255, 0.3), rgba(255, 255, 255, 0.05));
+  transition: 0.4s linear;  
+  transition-property: width, background-color;    
+}
+
+.progress-moved .progress-bar2 {
+  width: 85%; 
+  background-color: #EF476F;  
+  animation: progressAnimation 6s;
+}
+
+@keyframes progressAnimation {
+  0%   { width: 5%; background-color: #F9BCCA;}
+  100% { width: 85%; background-color: #EF476F; }
+}
+
+<link rel='icon' href='favicon.ico' type='image/x-icon'/ >   
+</style>
+
+</head>
+<body>
+
+
+  
+<div class="title"> 
+  win<br>win<br>
+  win<br>win<br>    
+</div>
+
+
+<div id="statements Container2" class="aniPanel">
+  <div class="statements stitle">Incoming statements</div>
+    
+        <div class="statements">
+          friends should be shamed for flying
+        </div>
+    
+        <div class="statements">
+          people should be able to see their familys
+        </div>
+    
+        <div class="statements">
+          hoe is het leven verder?
+        </div>
+    
+        <div class="statements">
+          friends should be shamed for flying
+        </div>
+   
+        <div class="statements">
+          people should be able to see their familys
+        </div>
+   
+        <div class="statements">
+          hoe is het leven verder?
+        </div>
+  </div>
+</div>
+
+<div class="current statements">
+  
+</div>
+
+
+<div class="container">    
+  <div class="progress2 progress-moved">
+    <div class="progress-bar2" >
+    </div>                       
+  </div> 
+</div>
+
+
+
+
+<script>
+
+
+  let counter
+
+function startCounter(t) {
+  counter = t 
+  document.querySelector('.counter').style.display = 'block'
+}
+
+function stopTimer() {
+  document.querySelector('.counter').style.display = 'none'
+}
+
+function strPadLeft(str, pad, length) {
+    return (new Array(length + 1).join(pad) + str).slice(-length)
+}
+
+setInterval(() => {
+  const time = --counter
+  const minutes = Math.floor(time / 60)
+  const seconds = time - minutes * 60
+  document.querySelector('.counter').innerHTML = strPadLeft(minutes, '0', 2) +
+    ":" +
+    strPadLeft(seconds, '0', 2)
+  }, 1000)
+
+startCounter(600)
+
+
+
+
+</script>
+
+
+
+
+
+
+<!-- </div> -->
+</body>
