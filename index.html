@@ -19,6 +19,8 @@
 <div id="content">
 </div>
 
+
+
 <div id="templates">
   <!-- Welcome -->
   <div class="welcome screen container">
@@ -27,11 +29,11 @@
         <h1>welcome to</h1>
       </div>
       <div class="panel">
-        <h1>winwin.zone</h1>
+        <h3>winwin.zone</h3>
       </div>
       <div class="panel">
         <div class="vcenter">
-          <img class="img-swipe" src="imgs/swipe_agree_pink.png">
+          <img class="welcomeimg-swipe" src="./imgs/swipe_agree.gif">
         </div>
         <h1>swipe right</h1>
         <h1>to join</h1>
@@ -39,6 +41,8 @@
     </div>
     <div class="swipeable"><h1>Joining...</h1></div>
   </div>
+
+
 
   <!-- Until next session -->
   <div class="til screen">
@@ -49,7 +53,7 @@
       <div class="dots bluedot vcenter"><span></span></div>
     </div>
     <div class="panel">
-      <h1>at the WINWIN.zone</h1>
+      
     </div>
   </div>  
 
@@ -58,25 +62,39 @@
     <div class="panel"><img class="tutorial" src="imgs/tutorial.gif" height="600px"><h1></h1></div>
   </div>
 
-  <!-- Ready -->
+
+
+
+
+
+  <!-- showReady() -->
   <div class="ready screen container">
     <div class="swipeable"><h1>Disagree</h1></div>
     <div class="swipeable">
-      <div class="panel">
-        <h1>You are with</h1>
-        <h1><span>0</span> people</h1>
-        <h1>Do you want to start?</h1>
-      </div>
-      <div class="panel">
-        <div class="vcenter">
-          <img class="img-swipe" src="imgs/swipe_disagree_pink.png">
+      
+      <div class="panel vcenter">
+          <h1>agree</h1>
           <img class="img-swipe" src="imgs/swipe_agree_pink.png">
-          <h1>Disagree / Agree</h1>
-        </div>
       </div>
+
+      <div class="panel statement">
+        <h3>You are with 3 people do you want to start?</h3>
+      </div>
+      
+      <div class="panel vcenter">
+          
+          <img class="img-swipe" src="imgs/swipe_disagree_pink.png">
+          <h1>disAgree</h1>
+      </div>
+    
     </div>
     <div class="swipeable"><h1>Agree</h1></div>
   </div>  
+
+
+
+
+
 
   <!-- Statement/Question -->
   <div class="question screen container">
@@ -87,16 +105,26 @@
         <img class="img-swipe" src="imgs/swipe_agree_pink.png">
       </div>
       <div class="panel statement">
-          <h2 class="stmt">Friends should be shamed for flying</h2>
+          <h3 class="stmt">Friends should be shamed for flying</h3>
       </div>
-      <div class="panel"><h1 class="counter">--:--</h1></div>
+      <h4 class="counter">--:--</h4>
+      
       <div class="panel no vcenter">
+
           <img class="img-swipe" src="imgs/swipe_disagree_pink.png"/>
           <h1>Disagree</h1>
       </div>
+
+
+      
     </div>
     <div class="swipeable"><h1>Agree</h1></div>
   </div>
+
+
+
+
+
 
   <!-- Waiting -->
   <div class="waiting screen">
@@ -107,26 +135,38 @@
     </div>
     -->
     <div class="panel pleasewait">
-      <h3>Waiting for everyone to respond...</h3>
+      <h1>Waiting for everyone to respond...</h1>
     </div>  
     <div class="panel"><h1 class="counter">--:--</h1></div>
   </div>  
 
+
+
+
+
+
+
   <!-- Prompt -->
   <div class="prompt screen">
-    <div class="panel vcenter question"><h3></h3></div>
+    
     <div class="panel vcenter">
-      <h1>You responded</h1> 
+      <h3>You responded</h3> <span class="answer"></span><h3>to</h3>
     </div>
-    <div class="panel vcenter question">
-      <span class="answer">Disagree</span>
-    </div>
-    <div class="panel provide">
-      <h3>Please provide a statement that explains your answer.</h3>
-    </div>
-    <div class="panel"><textarea placeholder="Write your statement here...."></textarea></div>
+ 
+
+    <div class="panel vcenter question"><h5></h5></div>
+
+<div class="panel"><h1 class="counter">--:--</h1></div>
+  
+    <div class="panel"><textarea placeholder="Please write a statement that explains your answer..."></textarea></div>
+  
+
     <div class="panel button submit"><h1>Submit</h1></div>
   </div> 
+
+
+
+
 
   <!-- Consensus -->
   <div class="consensus screen container">
@@ -140,7 +180,6 @@
           You have reached consensus
           <span>0</span> time(s) in this
           discussion.
-
           Although you might differ in
           opinions on this statement,
           you have discovered some 
@@ -149,12 +188,15 @@
         </p>
       </div>  
       <div class="panel vcenter">
-        <h1>Results</h1>
+        <h3>Results</h3>
         <img class="img-swipe" src="imgs/swipe_agree_pink.png">
       </div>
     </div>
     <div class="swipeable"><h1>Fetching results...</h1></div>
   </div> 
+
+
+
 
   <!-- No consensus -->
   <div class="consensless screen container">
@@ -182,14 +224,34 @@
     <div class="swipeable"><h1>JOINING</h1></div>
   </div> 
 
+
+
+
   <!-- Results -->
   <div class="results screen">
     <div class="panel"><h1>Your moments of consensus.</h1></div>
-    <div class="panel"><h1>🌈🌈🌈</h1></div>  
-    <div class="panel vcenter moments">
-      <ul></ul>
-    </div>
+    <div class="panelscroll"><h1>🌈🌈🌈</h1></div>  
+      <ul>Friends should be shamed for flying</ul>
+      <ul>But what about co2 emisions from farmers</ul>
+      <ul>What about very fucking long statements and people type as fast as they can and suchWhat about very fucking long statements and people type as fast as they can and suchWhat about very fucking long statements and people type as fast as they can and such</ul>
+      <ul>But what about the protests happening now</ul>
+         <ul>Friends should be shamed for flying</ul>
+      <ul>But what about co2 emisions from farmers</ul>
+      <ul>What about very fucking long statements and people type as fast as they can and suchWhat about very fucking long statements and people type as fast as they can and suchWhat about very fucking long statements and people type as fast as they can and such</ul>
+      <ul>But what about the protests happening now</ul>
+         <ul>Friends should be shamed for flying</ul>
+      <ul>But what about co2 emisions from farmers</ul>
+      <ul>What about very fucking long statements and people type as fast as they can and suchWhat about very fucking long statements and people type as fast as they can and suchWhat about very fucking long statements and people type as fast as they can and such</ul>
+      <ul>But what about the protests happening now</ul>
+         <ul>Friends should be shamed for flying</ul>
+      <ul>But what about co2 emisions from farmers</ul>
+      <ul>What about very fucking long statements and people type as fast as they can and suchWhat about very fucking long statements and people type as fast as they can and suchWhat about very fucking long statements and people type as fast as they can and such</ul>
+      <ul>But what about the protests happening now</ul>
+    
   </div>
+
+
+
 
 </div>
 
