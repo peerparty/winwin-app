@@ -3,140 +3,302 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<meta http-equiv="refresh" content="600">
 <style>
+/*The difference between an ID and a class is that an ID can be used to identify one element, whereas a class can be used to identify more than one.
+
+          #ff69b4; = PINK
+          #ffff00; = YELLOW
+          #18ff00; = GREEN FOR REFERENCE COLOR
+          #ff0000; = RED FOR REFERENCE COLOR
+}*/
+
+
+          
+@import url("https://p.typekit.net/p.css?s=1&k=quh2hzs&ht=tk&f=17023.17029.21633.21638&a=2698245&app=typekit&e=css");
+
+@font-face {
+font-family:"tablet-gothic";
+src:url("https://use.typekit.net/af/9e2513/000000000000000000014357/27/l?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=n4&v=3") format("woff2"),url("https://use.typekit.net/af/9e2513/000000000000000000014357/27/d?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=n4&v=3") format("woff"),url("https://use.typekit.net/af/9e2513/000000000000000000014357/27/a?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=n4&v=3") format("opentype");
+font-display:auto;font-style:normal;font-weight:400;
+}
+
+@font-face {
+font-family:"tablet-gothic";
+src:url("https://use.typekit.net/af/42e553/00000000000000000001435b/27/l?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=n7&v=3") format("woff2"),url("https://use.typekit.net/af/42e553/00000000000000000001435b/27/d?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=n7&v=3") format("woff"),url("https://use.typekit.net/af/42e553/00000000000000000001435b/27/a?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=n7&v=3") format("opentype");
+font-display:auto;font-style:normal;font-weight:700;
+}
+
+@font-face {
+font-family:"tablet-gothic";
+src:url("https://use.typekit.net/af/1fbbd5/00000000000000000001435c/27/l?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=i7&v=3") format("woff2"),url("https://use.typekit.net/af/1fbbd5/00000000000000000001435c/27/d?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=i7&v=3") format("woff"),url("https://use.typekit.net/af/1fbbd5/00000000000000000001435c/27/a?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=i7&v=3") format("opentype");
+font-display:auto;font-style:italic;font-weight:700;
+}
+
+@font-face {
+font-family:"tablet-gothic";
+src:url("https://use.typekit.net/af/d1ab34/000000000000000000014358/27/l?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=i4&v=3") format("woff2"),url("https://use.typekit.net/af/d1ab34/000000000000000000014358/27/d?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=i4&v=3") format("woff"),url("https://use.typekit.net/af/d1ab34/000000000000000000014358/27/a?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=i4&v=3") format("opentype");
+font-display:auto;font-style:italic;font-weight:400;
+}
+.tk-tablet-gothic { font-family: "tablet-gothic",sans-serif; }
 
 * {
   margin: 0;
-}
-
-html, body, #content, .screen {
-  height: 100%;
-  width: 100%;
+  padding: 0;
 }
 
 body {
-  background: #ff0;
+  width: 100%;
+  background-color: #ffff00;
+  font-family:"tablet-gothic";
+  text-transform: uppercase;
+  color: #ff69b4;
   overflow: hidden;
-  font-family: arial;
+}
+
+
+/*#wrapper{
+  width: 100%;
+}
+*/
+
+
+h1 {
+  font-size: 60px; 
+}
+
+h2 {
+  font-size: 30px; 
+}
+
+h3 {
+  font-size: 100px;  
+  line-height: 120px;
+}
+
+h4 {
+  font-size: 250px; 
   color: #ff69b4;
 }
 
-h1 {
-  z-index: -1;
-  position: fixed;
-  text-transform: uppercase;
-  word-wrap: break-word;
-  font-size: 100px;
-  word-wrap: break-word;
-  font-size: 400px;
+h5 {
+  font-size: 40px; 
+  color: #ff69b4;
+}
+
+div {
   text-align: center;
-  margin: 0;
+  color: #ff69b4;
+}
+
+.top {
+  display: flex;
+}
+
+.center {
+  /*position: absolute;*/
+  position: center;
+  transform: translate(0%, 10%);
+  /*top: 50%;*/
+  /*left: 50%;*/
+  /*transform: translate(-50%, -50%);*/
+}
+
+.border {
+  border: 2px solid #ff69b4;
+  background-color: #ffff00;
+  margin: 10px;
+}
+.wrapper{
+  padding:10px;
+}
+.block1, .block2 {
+  float: left;
+  z-index: 10;
+}
+
+
+.block1 {
+  float: left;
+  width: 25%;
+}
+
+.block2 {
+  position: relative;
+  flex-grow: 100;
+}
+
+.clearfix::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+
+.outlinebig{
+  -webkit-text-stroke: 2px #ff69b4;
+  color: #ffff00;
+}
+
+.outline{
   -webkit-text-stroke: 1px #ff69b4;
-  color: #ff0;
-  left: 50%;
-  width: 50%;
-  transform: translateX(-50%);
-}
-
-h1.top {
-  top: 0;
-  transform: rotate(-180deg) translateX(50%);
-}
-
-h1.bottom {
-  bottom: 0;
-}
-
-.panel {
-  min-height: 300px;
-  min-width: 400px;
-  position:fixed;
-  animation-fill-mode: both;
-  font-size: 30px;
-
-  /* box-shadow: 0 0 30px #333; */
-}
-
-.panel .time {
-  background: #ff0;
-  border-bottom: 1px solid #ff69b4;
-  border: 1px solid #ff69b4;
-  padding: 0 20px 0 20px;
-}
-
-h2, .section {
-  background: #ff0;
-  text-align: center;
-  padding: 20px;
-  border: 1px solid #ff69b4;
-}
-
-.next-session .time {
-  padding: 20px;
-}
-
-.screen {
-  height: 100%;
-  width: 100%;
-}
-
-.screen .section {
-  position: absolute;
-  top: 50%;
-  width: 100%;
-}
-
-.screen h2 {
-  border: none;
+  color: #ffff00;
 }
 
 .consensus {
-  background: url("/imgs/confetti.gif"); 
+  width: 33%;
+  padding: 15px;
 }
 
-#templates {
-  display: none;
+.left {
+  float: left;
+}
+
+.right {
+  float: right;
+}
+
+
+
+
+
+img{
+  width: 99%; 
+}
+
+
+.counter{  
+  font-size: 35px; 
+  letter-spacing: 2px; 
+  border: 1px solid #ff69b4;
+  position: relative;       
+  height: 50%;
+  margin-left: 60px;
+  width: 15%;
+  background-color: #ffff00; 
+  color: #ff69b4;
+  text-align: center;
+  font-family:"tablet-gothic";
+  text-transform: uppercase;
+}
+
+.background h1 {
+  font-size: 500px;
+   
+line-height: 367px;
+  
+  text-transform: uppercase;
+  text-shadow: -1px 0 #ff69b4, 0 1px #ff69b4, 1px 0 #ff69b4, 0 -1px #ff69b4;
+  
+}
+
+.background {
+  /*transform: rotate(90deg);*/
+  position: absolute;
+
+  z-index: -1;
+  color: #ffff00;
+  background-color: none;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
 }
 
 </style>
+
 </head>
 <body>
 
-<div id="content">
-<h1 class="top">Win</h1>
-<h1 class="bottom">Win</h1>
+<div class="background">  
+  <h1>win</h1>
+  <h1>win</h1>
+  <h1>win</h1>
+  <h1>win</h1>
+  <h1>win</h1>
+  <h1>win</h1>
+ 
 </div>
 
-<div id="templates">
-  <div class="panel">
-    <span class="time">--:--</span>
-    <h2 class="stmt"></h2>
-  </div>
-  <div class="panel next-session">
-    <h2>Next session:</h2>
-    <h2 class="time">--:--</h2>
-  </div>
-  <div class="panel next-stmt">
-    <h2>Next discussion:</h2>
-    <h2 class="stmt"></h2>
-  </div>
-  <div class="consensus screen">
-    <div class="section">
-      <h2 class="stmt"></h2>
+<div class="wrapper">
+
+  <div class="top clearfix">
+    <div class="border block1">
+      <h1><span class="count">0</span><span class="outline">/4</span></h1>
+      <h2><span class="outline">people</span></h2>
+      <h2><span class="outline">joining</span></h2>
     </div>
+
+
+    <div class="border block2">
+      <div class="center">
+        <h2><span class="outline">statement to discuss</span></h2>
+        <h2 class="stmt"></h2>
+      </div>
+    </div>    
   </div>
-  <div class="tree screen">
-    <div class="section">
-      <p></p>
-    </div>
+
+  <div id="content"></div>
+  
+  <div class="border block4">
+    <h5><span class="outline">to join go with your</span> phone</h5>
+    <h5><span class="outline">to</span> winwin.zone</h5>
+    <h5><span class="outline">enjoy !</span></h5>
   </div>
 
 </div>
 
 <script src="js/screen.js"></script>
 
+<template class="people">
+  <div class="border block3">
+    <h4><span class="count">0</span><span class="outlinebig">/4</span></h4>
+    <h3><span class="outlinebig">people<br>joining the session </span></h3>
+    <h3>join them</h3>
+    <h3>now!</h3>
+  </div>
+</template>
+
+<template class="join">
+  <div class="border block3">
+    <h3><span class="outlinebig">to join go</h3>
+    <h3>with your</h3></span>
+    <h3>phone</h3>
+    <h3><span class="outlinebig">to</span></h3>
+    <h3>winwin.zone</h3>
+    <h3><span class="outlinebig">enjoy!</span></h3>
+  </div>
+</template>
+
+<template class="tutorial">
+  <div class="border block3">
+    <h3><span class="outlinebig">this is how it works</h3></span>
+    <img src="tut_screen.gif"  >
+  </div>
+</template>
+
+<template class="stmts">
+  <div class="block3">
+    <div class="moments">
+    <h5 class="outline">Moments</h5>
+    <h5 class="outline">of consensus</h5>
+    <div class="border consensus left"><h2>Flying for family overseas is ok.</h2></div>
+    <div class="clearfix"></div>
+    <div class="border consensus right"><h2>Flying for family overseas is ok.</h2></div>
+    <div class="clearfix"></div>
+
+    <div>
+      <div class="border consensus" style="margin: 0 auto"><span><h2>Flying for family overseas is ok.</h2></span></div>
+      </div>
+      <div class="clearfix"></div>
+
+      <div class="border consensus right"><h2>Flying for family overseas is ok.</h2></div>
+      <div class="clearfix"></div>
+      <div class="border consensus left"><h2>Flying for family overseas is ok.</h2></div>
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</template>
+
+<script src="js/screen.js"></script>
+
 </body>
 </html>
-
-

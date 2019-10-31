@@ -228,8 +228,8 @@
       case 'USER':
         userId = res['id']
         serverId = res['server_id']
-        setCookie('server_id', serverId, 1)
-        setCookie('user_id', userId, 1)
+        setCookie('server_id', serverId)
+        setCookie('user_id', userId)
         console.log(document.cookie)
         console.log('User id: ' + userId)
         showTil(((res['start_time'] * 1000) - Date.now()) / 1000)
