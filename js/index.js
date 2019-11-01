@@ -2,6 +2,7 @@
 
   let counter = 0
   let userId = -1
+  let userCount = -1
   let serverId = -1
   let timerId
   let results = []
@@ -56,18 +57,21 @@
     cleanup()
     showScreen('til')
     startTimer(t, document.querySelector('#content .til .counter'))
+    console.log("showTIL", userCount)
     let color = 'blue'
-    if(userId == 0) color = 'red'
-    if(userId == 1) color = 'green'
-    if(userId == 2) color = 'yellow'
+    if(userCount == 1) color = 'red'
+    else if(userCount == 2) color = 'green'
+    else if(userCount == 3) color = 'white'
     document.querySelector('#content .bluedot span').classList.add(color)
   }
 
   function showTutorial() {
     cleanup()
     showScreen('tutorial')
-    const elm = document.querySelector('#bg-audio')
-    elm.paused ? elm.play() : elm.pause()
+    document.querySelector('.tutorial').addEventListener('click', e => {
+      const elm = document.querySelector('#bg-audio')
+      elm.paused ? elm.play() : elm.pause()
+    })
   } 
 
   function showReady(count) {
@@ -90,27 +94,29 @@
     showScreen('waiting') 
   }  
 
+  function submitPrompt(e) {
+    e.preventDefault()
+    // Ubermate and go - JBG
+    document.querySelector('body').classList.add('ubermate')
+    buttonAudio()
+    setTimeout(() => {
+      sendPrompt(document.querySelector('#content .prompt textarea').value)
+      showWaiting()
+      startTimer(counter, document.querySelector('#content .waiting .counter'))
+    }, 3000)
+  }
+
   function showPrompt(txt, ans, secs) {
     cleanup()
     showScreen('prompt') 
-    document.querySelector('#content .prompt .question h3').innerHTML = txt 
+    document.querySelector('#content .prompt .question h1').innerHTML = txt 
     document.querySelector('#content .prompt .answer').innerHTML = ans ? 'Agree' : 'Disagree'
     document.querySelector('#content .prompt .answer').classList.add(ans ? 'yes' : 'no')
     document.querySelector('#content .prompt .answer').classList.remove(ans ? 'no' : 'yes')
     document.querySelector('#content .prompt textarea').focus()
+    document.querySelector('#content .prompt textarea').addEventListener('keyup', e => { if(e.keyCode === 13) submitPrompt(e) })
     startTimer(secs, document.querySelector('#content .prompt .counter'))
-
-    document.querySelector('#content .prompt .submit').addEventListener('click', e => {
-      // Ubermate and go - JBG
-      document.querySelector('body').classList.add('ubermate')
-      buttonAudio()
-      setTimeout(() => {
-        sendPrompt(document.querySelector('#content .prompt textarea').value)
-        showWaiting()
-        startTimer(counter, document.querySelector('#content .waiting .counter'))
-      }, 3000)
-    })
-
+    document.querySelector('#content .prompt .submit').addEventListener('click', e => submitPrompt(e))
   } 
 
   function showConsensus() {
@@ -232,6 +238,8 @@
         setCookie('user_id', userId)
         console.log(document.cookie)
         console.log('User id: ' + userId)
+        userCount = res['count']
+        console.log('USER COUNT', userCount, res['count'])
         showTil(((res['start_time'] * 1000) - Date.now()) / 1000)
         break
       case 'USER_QUESTION':

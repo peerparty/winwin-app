@@ -4,7 +4,7 @@
   let serverId = -1
   let timerId
   let userCount = 0
-  const screenTime = 4318 * 1000
+  const screenTime = 42000
 
   function addContent(template) {
     const content = document.querySelector(`template.${template}`).content
@@ -74,7 +74,7 @@
         userCount = res.count
         updateStmt(res)
         showInit(res)
-        addContent('tutorial')
+        //addContent('tutorial')
         break
       case 'SCREEN_USER_COUNT':
         userCount = res.count

@@ -231,7 +231,7 @@ img.tutorial {
   margin-top:100px;
 }
 
-.counter{
+.counter {
   font-size: 34px;
 }
 
@@ -296,8 +296,8 @@ img.tutorial {
   background: #00f !important;
 }
 
-.yellow {
-  background: #ffff00 !important;
+.white {
+  background: #fff !important;
 }
 
 .screen {
