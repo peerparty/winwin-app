@@ -1,10 +1,8 @@
 function setCookie(name, value) {
   let expires = ""
-   if (days) {
-    const date = new Date()
-    date.setTime(date.getTime() + (10 * 60 * 1000))
-    expires = " expires=" + date.toUTCString()
-  }
+  const date = new Date()
+  date.setTime(date.getTime() + (10 * 60 * 1000))
+  expires = " expires=" + date.toUTCString()
   document.cookie = name + "=" + value +  expires + " path=/"
 }
 

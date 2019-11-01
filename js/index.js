@@ -42,7 +42,7 @@
   function showScreen(clazz) {
     const tmp = document.querySelector(`#templates .${clazz}`).cloneNode(true)
     const content = document.querySelector('#content')
-    content.removeChild(content.firstChild)
+    if(content.firstChild) content.removeChild(content.firstChild)
     content.appendChild(tmp)
   }
 

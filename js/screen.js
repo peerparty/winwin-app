@@ -74,6 +74,7 @@
         userCount = res.count
         updateStmt(res)
         showInit(res)
+        addContent('tutorial')
         break
       case 'SCREEN_USER_COUNT':
         userCount = res.count
