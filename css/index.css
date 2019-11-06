@@ -4,8 +4,8 @@
 }
 
 html, body {
-  background-color: #ffff00;
-//  background-color:#ff69b4;
+//  background-color: #ffff00;
+  background-color:#ff69b4;
   font-family: "tablet-gothic",sans-serif;
   overflow: hidden;
   height: 100vh;
@@ -115,19 +115,20 @@ ul {
   background-color: none;
   position: relative;
   display: inline-block;
-  top: 40%;
-  left: 50%;
-  transform: translate(-50%, -40%);
+ // top: 40%;
+ // left: 50%;
+//  transform: translate(-50%, -40%);
 }
 
 .panel {
- // height:100vh;
+ 
+ transform: translate(5%, 5%);
+  width:80vw;
+  height:100vh;
   position: relative;
   background-color: #ffff00;
   display: block;
-//margin:10px;
- // margin-top:50px;
- // text-align:center;
+   
 }
 
 .submit {
@@ -275,11 +276,12 @@ img.tutorial {
 }
 
 .container .swipeable {
-  width: 100%;
-  width: calc(100%/var(--n));
+  width:100%;
+   width:calc(100%/var(--n));
+//  width:calc(100%/var(--n)-var(--padding));
+//  width: calc(100% - var(--gutter) - var(--padding)); 
   user-select: none;
   pointer-events: none;
- // padding:20px;
 }
 
 .red {
@@ -316,8 +318,6 @@ img.tutorial {
 .welcomeimg-swipe {
   height: 200px;
 }
-
-
 
 
 /*.welcome{
