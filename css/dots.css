@@ -15,7 +15,7 @@
 #content .dots span {
   position: absolute;
   border-radius: 50%;
-  border:2px solid #ff69b4;
+//  border:2px solid #ff69b4;
   border-radius: 40% 80% 55% 45%/32% 53% 47% 80%;
   animation: vawe 7s linear infinite;
 }
