@@ -8,13 +8,6 @@
   let results = []
   let done = false
 
-  function init() {
-    document.addEventListener('swipe', e => {
-      console.log('swipe', e.detail)
-      handleSwipe(e.detail, document.querySelector('#content .screen').classList[0])
-    })
-  }
-
   function strPadLeft(str, pad, length) {
     return (new Array(length + 1).join(pad) + str).slice(-length)
   }
@@ -46,12 +39,37 @@
     const content = document.querySelector('#content')
     if(content.firstChild) content.removeChild(content.firstChild)
     content.appendChild(tmp)
+    return tmp
 }
+
+  function handleClick(id, res) {
+    // Ubermate then go - JBG
+    document.querySelector('body').classList.add('ubermate')
+    setTimeout(() => {
+      if(id == 'welcome') {
+        const sid = getCookie('server_id')
+        ws.send(JSON.stringify({
+          cmd: 'USER_HELLO',
+          server_id: sid ? parseInt(sid.split(' ')[0]) : -1,
+        }))
+      }
+      else if(id == 'ready') sendResponse(res ? 1 : 0)
+      else if(id == 'question') {
+        showWaiting()
+        sendAnswer(res ? 1 : 0)
+        startTimer(counter, document.querySelector('#content .waiting .counter'))
+      }
+      else if(id == 'consensus') showResults()
+      else if(id == 'consensless' || id == 'error') window.location = window.location
+    }, 3000)
+  }
 
   function showWelcome() {
     cleanup()
-    showScreen('welcome') 
-    setupSwipe('welcome', 1)
+    const node = showScreen('welcome') 
+    node.querySelector('.buttonagree').addEventListener('click',
+      e => handleClick('welcome'))
+      
   }
 
   function showTil() {
@@ -76,17 +94,23 @@
 
   function showReady(count) {
     cleanup()
-    showScreen('ready') 
-    setupSwipe('ready', 2)
+    const node = showScreen('ready') 
+    node.querySelector('.buttondisagree').addEventListener('click',
+      e => handleClick('ready', false))
+    node.querySelector('.buttonagree').addEventListener('click',
+      e => handleClick('ready', true))
     document.querySelector('#content .ready span').innerHTML = count
   }  
 
   function showQuestion(txt, secs) {
     cleanup()
-    showScreen('question') 
-    setupSwipe('question', 2)
+    const node = showScreen('question') 
     startTimer(secs, document.querySelector('#content .question .counter'))
-    document.querySelector('#content .question .stmt').innerHTML = txt 
+    document.querySelector('#content .question .stmt').innerHTML = txt
+    node.querySelector('.buttondisagree').addEventListener('click',
+      e => handleClick('question', false))
+    node.querySelector('.buttonagree').addEventListener('click',
+      e => handleClick('question', true))
   }  
 
   function showWaiting() {
@@ -121,16 +145,16 @@
 
   function showConsensus() {
     cleanup()
-    showScreen('consensus') 
-    setupSwipe('consensus', 1)
+    const node = showScreen('consensus') 
     document.querySelector('body').classList.add('consensus')
-    document.querySelector('#content .consensus p span').innerHTML = results.length
+    document.querySelector('#content .consensus span').innerHTML = results.length
+    node.querySelector('.buttonagree').addEventListener('click',
+      e => handleClick('consensus'))
   }  
 
   function showConsensless() {
     cleanup()
     showScreen('consensless') 
-    setupSwipe('consensless', 1)
   } 
 
   function showResults() {
@@ -147,7 +171,6 @@
   function showError(msg) {
     cleanup()
     showScreen('error') 
-    setupSwipe('error', 1)
     document.querySelector('#content .error .msg').innerHTML = msg
   } 
 
@@ -178,37 +201,8 @@
     }))
   }
 
-  function handleSwipe(screen, id) {
-    // Ubermate then go - JBG
-    document.querySelector('body').classList.add('ubermate')
-    //buttonAudio()
-    setTimeout(() => {
-      showWaiting()
-      console.log('handleSwipe', screen, id)
-      if(screen == 1 && id == 'welcome') {
-        const sid = getCookie('server_id')
-        const uid = getCookie('user_id')
-        ws.send(JSON.stringify({
-          cmd: 'USER_HELLO',
-          server_id: sid ? parseInt(sid.split(' ')[0]) : -1,
-          user_id: uid ? parseInt(uid.split(' ')[0]) : -1
-        }))
-      }
-      else if(id == 'ready') sendResponse(screen ? 1 : 0)
-      else if(id == 'question') {
-        sendAnswer(screen ? 1 : 0)
-        startTimer(counter, document.querySelector('#content .waiting .counter'))
-      }
-      else if(id == 'consensus') showResults()
-      else if(id == 'consensless' || id == 'error') window.location = window.location
-    }, 3000)
-  }
-
   // Websocket stuff - JBG
 
-  //const ws = new WebSocket('wss://winwin.zone/ws/')
-  //const ws = new WebSocket('ws://localhost:8000/')
-  //const ws = new WebSocket('ws://localhost/ws/')
   const proto = window.location.protocol === 'https:' ? 'wss' : 'ws'
   const ws = new WebSocket(`${proto}://${window.location.host}/ws/`)
 
@@ -261,7 +255,7 @@
         else showConsensless()
         break
       case 'USER_JOIN':
-        //Ask user if they would like to force start - JBG
+        // Ask user if they would like to force start - JBG
         // Give the newest user a chance to check their color - JBG
         setTimeout(() => showReady(res['count']), 5000)
         break
@@ -283,9 +277,8 @@
     }
   }
 
-  init()
+  showWelcome() 
 
-/*  showWelcome()*/
 /*  showTil()*/
 /*  showTutorial()*/
 /*  showReady()*/
@@ -294,7 +287,7 @@
 /*  showPrompt()*/
 /*  showConsensus()*/
 /*  showConsensless()*/
-/*  showError()*/
+/*  showError() */
 /*  showResults()*/
 
 

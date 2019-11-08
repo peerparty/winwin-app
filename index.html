@@ -16,7 +16,8 @@
   <source src="bg.mpeg" type="audio/mpeg">
 </audio>
 
-<div id="content">
+<div id="content"></div>
+<!--
  <div class="background">
    <h3>winwinwinwin</h3>
    <h3>winwinwinwin</h3>
@@ -31,37 +32,33 @@
    <h3>winwinwinwin</h3>
    <h3>winwinwinwin</h3>
  </div>
-</div>
+-->
 
 
 <div id="templates">
-  <!-- Welcome -->
 
- 
- <div class="welcome vcenter screen">
-   <div class="center outline">
-    <div class="panel">
+  <!-- Welcome -->
+  <div class="welcome vcenter screen">
+    <div class="center outline">
+      <div class="panel">
         <h1>Welcome to</h1>
         <h1>WINWIN.zone</h1>
         <h1>CLICK</h1>
         <h1>to join</h1>
         <button class="buttonagree"><h5>JOIN</h5></button>
-    </div>        
-   </div>
+      </div>        
+    </div>
   </div>
-   
-  
-
 
   <!-- Until next session -->
   <div class="til vcenter screen">
-   <div class="center outline">
-    <div class="panel">
+    <div class="center outline">
+      <div class="panel">
         <h1>Find your color on the ground</h1>
         <h1> Your spot is</h1> 
-        <div class="dots"><span></span></div>        
-    </div>  
-   </div>
+        <div class="dots bluedot vcenter"><span></span></div>
+      </div>  
+    </div>
   </div>  
 
   <!-- Tutorial -->
@@ -71,94 +68,64 @@
 
   <!-- showReady() -->
   <div class="ready vcenter screen">
-   <div class="center">
-    <div class="panel outline">
-       <div class=" statement">
-        <h1>You are with <span class="count"></span> people do you want to start?
-       </div>
-       <button class="buttondisagree"><h5>NO</h5></button>
-       <button class="buttonagree"><h5>YES</h5></button>
+    <div class="center">
+      <div class="panel outline">
+        <div class=" statement">
+          <h1>You are with <span class="count"></span> people do you want to start?
+        </div>
+        <button class="buttondisagree"><h5>NO</h5></button>
+        <button class="buttonagree"><h5>YES</h5></button>
       </div>
-     
-   </div>
+    </div>
   </div>
-
-
-
-
-
-
-
-
-
-
 
   <!-- Statement/Question -->
   <div class="question vcenter screen">
-   <div class="center">
-    <div class="panel  outline">
-
-
+    <div class="center">
+      <div class="panel  outline">
 	<div class="statement">
-            <h1 class="stmt">Friends should be shamed for flying</h1>
-            <h2 class="counter">--:--</h2>
-            <button class="buttondisagree"><h5>DISAGREE</h5></button>
-            <button class="buttonagree"><h5>AGREE</h5></button>
+          <h1 class="stmt">Friends should be shamed for flying</h1>
+          <h2 class="counter">--:--</h2>
+          <button class="buttondisagree"><h5>DISAGREE</h5></button>
+          <button class="buttonagree"><h5>AGREE</h5></button>
         </div>
-
+      </div>
     </div>
-   </div>
   </div>
-  
-
-
-
-
-
-
 
   <!-- Waiting -->
   <div class="waiting vcenter screen">
-   <div class="center">
-    <div class="panel pleasewait outline">
-
-     <h1>Waiting for everyone to respond...</h1>
-    <div class="panel"><h2 class="counter">--:--</h2></div>
-
-   </div>
-  </div>
- </div>  
+    <div class="center">
+      <div class="panel pleasewait outline">
+        <h1>Waiting for everyone to respond...</h1>
+        <div class="panel"><h2 class="counter">--:--</h2></div>
+      </div>
+    </div>
+  </div>  
 
   <!-- Prompt -->
-
   <div class="prompt vcenter screen">
-   <div class="center outline">
-    <div class="panel">
-      <h1>You responded <span class="answer"></span> to</h1>
-     
-     <div class="panel vcenter question"><h1></h1></div>
-       <div class="panel"><h2 class="counter">--:--</h2></div>
-     <div class="panel">
-       <textarea placeholder="Please write a statement that explains your answer..."></textarea>
-     </div>
-     <div class="panel button submit">
-     <button class="buttonagree"><h5>SUBMIT</h5></button>
-     </div>
-   </div> 
+    <div class="center outline">
+      <div class="panel">
+        <h1>You responded <span class="answer"></span> to</h1>
+        <div class="panel vcenter question"><h1></h1></div>
+        <div class="panel"><h2 class="counter">--:--</h2></div>
+        <div class="panel">
+          <textarea placeholder="Please write a statement that explains your answer..."></textarea>
+        </div>
+        <div class="panel button submit">
+          <button class="buttonagree"><h5>SUBMIT</h5></button>
+        </div>
+      </div> 
+    </div>
   </div>
- </div>
-
-
-
 
   <!-- Consensus -->
   <div class="consensus vcenter screen">
-   <div class="center outline">
-    <div class="panel">
-
+    <div class="center outline">
+      <div class="panel">
         <h1>You have</h1>
         <h1>consensus!!!!</h1>
-         <br>   
         <h4>
           You have reached consensus
           <span>0</span> time(s) in this
@@ -169,62 +136,51 @@
           common ground to make
           decisions together.
         </h4>
-        <br>
-      
-       
-       <button class="buttonagree"><h5>SHOW RESULTS</h5></button>
-    </div>
-   </div>  
+        <button class="buttonagree"><h5>SHOW RESULTS</h5></button>
+      </div>
+    </div>  
   </div>  
-
-
-
-
-
 
   <!-- No consensus -->
   <div class="consensless vcenter screen">
-   <div class="center outline">
-    <div class="panel">
-
+    <div class="center outline">
+      <div class="panel">
         <h1>You unfortunately had no moments of consensus.</h1>
         <h1>🙁🙁🙁</h1>
-	<button class="buttonagree"><h5>TRY AGAIN</h5></button>
-    </div>  
-   </div>
+        <button class="buttonagree"><h5>TRY AGAIN</h5></button>
+      </div>
+    </div>
   </div>  
 
   <!-- Error -->
-
   <div class="error vcenter screen">
-   <div class="center outline">
-    <div class="panel">
-
+    <div class="center outline">
+      <div class="panel">
         <h1 class="msg"></h1>
         <h1>🙁🙁🙁</h1>
         <h1>Join again?</h1>
         <button class="buttonagree"><h5>JOIN</h5></button>
-    </div> 
-   </div>
+      </div>
+    </div>
   </div>
-
-
 
   <!-- Results -->
   <div class="results vcenter screen">
-   <div class="center outline">
-    <div class="panel">
+    <div class="center outline">
+      <div class="panel">
 	<h1>Your moments of consensus.</h1>
-    <div class="panelscroll"><h1>🌈🌈🌈</h1></div>  
-      <ul></ul>
+        <div class="panelscroll"><h1>🌈🌈🌈</h1></div>  
+        <ul></ul>
+      </div>
     </div>
-   </div>
   </div>
+</div>
 
 <script src="js/audio.js"></script>
 <script src="js/cookies.js"></script>
 <script src="js/swipe.js"></script> 
 <script src="js/index.js"></script> 
+
 </body>
 </html>
 
