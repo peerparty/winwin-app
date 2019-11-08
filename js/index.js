@@ -41,11 +41,12 @@
   }
 
   function showScreen(clazz) {
+    console.log(`#templates .${clazz}`)
     const tmp = document.querySelector(`#templates .${clazz}`).cloneNode(true)
     const content = document.querySelector('#content')
     if(content.firstChild) content.removeChild(content.firstChild)
     content.appendChild(tmp)
-  }
+}
 
   function showWelcome() {
     cleanup()
@@ -53,16 +54,15 @@
     setupSwipe('welcome', 1)
   }
 
-  function showTil(t) {
+  function showTil() {
     cleanup()
     showScreen('til')
-    startTimer(t, document.querySelector('#content .til .counter'))
     console.log("showTIL", userCount)
     let color = 'blue'
     if(userCount == 1) color = 'red'
     else if(userCount == 2) color = 'green'
     else if(userCount == 3) color = 'white'
-    document.querySelector('#content .bluedot span').classList.add(color)
+    document.querySelector('#content .dots span').classList.add(color)
   }
 
   function showTutorial() {
@@ -240,7 +240,7 @@
         console.log('User id: ' + userId)
         userCount = res['count']
         console.log('USER COUNT', userCount, res['count'])
-        showTil(((res['start_time'] * 1000) - Date.now()) / 1000)
+        showTil()
         break
       case 'USER_QUESTION':
         console.log('Question is: ' + res['txt'])
@@ -269,7 +269,7 @@
         showTutorial()
         break
       case 'USER_WAIT':
-        showTil(counter)
+        showTil()
         break
       case 'USER_NOT_ENOUGH':
         showError("Not enough people joined this session.")
@@ -284,7 +284,21 @@
   }
 
   init()
-  showWelcome()
+
+/*  showWelcome()*/
+/*  showTil()*/
+/*  showTutorial()*/
+/*  showReady()*/
+/*  showQuestion()*/
+/*  showWaiting()*/
+/*  showPrompt()*/
+/*  showConsensus()*/
+/*  showConsensless()*/
+/*  showError()*/
+/*  showResults()*/
+
+
 
 })()
+
 
