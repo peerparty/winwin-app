@@ -271,6 +271,9 @@
       case 'USER_ERROR':
         showError("ERROR: Something has gone terribly wrong.")
         break
+      case 'USER_FULL':
+        showError("Sorry! There is a session in progress please wait for the next.")
+        break
       default:
         console.log('Unknown CMD: ' + cmd)
         break
