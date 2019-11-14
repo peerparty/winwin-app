@@ -155,6 +155,8 @@
   function showConsensless() {
     cleanup()
     showScreen('consensless') 
+    document.querySelector('.buttonagree').addEventListener('click',
+      e => { window.location = window.location })
   } 
 
   function showResults() {
@@ -172,6 +174,8 @@
     cleanup()
     showScreen('error') 
     document.querySelector('#content .error .msg').innerHTML = msg
+    document.querySelector('.buttonagree').addEventListener('click',
+      e => { window.location = window.location })
   } 
 
   function sendResponse(res) {
