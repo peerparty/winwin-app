@@ -287,7 +287,7 @@
 /*  showPrompt()*/
 /*  showConsensus()*/
 /*  showConsensless()*/
-/*  showError() */
+/*  showError()*/ 
 /*  showResults()*/
 
 

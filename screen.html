@@ -50,8 +50,7 @@ font-display:auto;font-style:italic;font-weight:400;
 body {
   width: 100%;
   background-color: #ffff00;
-  font-family:"tablet-gothic";
-  text-transform: uppercase;
+  font-family:"tablet-gothic"; 
   color: #ff69b4;
   overflow: hidden;
 }
@@ -65,10 +64,14 @@ body {
 
 h1 {
   font-size: 60px; 
+  text-transform: uppercase;
+
 }
 
 h2 {
   font-size: 30px; 
+  text-transform: uppercase;
+
 }
 
 h3 {
@@ -79,6 +82,8 @@ h3 {
 h4 {
   font-size: 250px; 
   color: #ff69b4;
+  text-transform: uppercase;
+
 }
 
 h5 {
@@ -117,15 +122,24 @@ div {
   z-index: 10;
 }
 
-
 .block1 {
+  padding:10px;
   float: left;
   width: 25%;
 }
 
 .block2 {
+  padding-left:10px;
+  padding-right:10px;
+ 
   position: relative;
   flex-grow: 100;
+}
+.block3 {
+  padding: 30px;
+}
+.block4{
+  padding:20px;
 }
 
 .clearfix::after {
@@ -210,29 +224,33 @@ line-height: 367px;
 <body>
 
 <div class="background">  
-  <h1>win</h1>
-  <h1>win</h1>
-  <h1>win</h1>
-  <h1>win</h1>
-  <h1>win</h1>
-  <h1>win</h1>
- 
+   <h1>winwinwinwin</h1>
+   <h1>winwinwinwin</h1>
+   <h1>winwinwinwin</h1>
+   <h1>winwinwinwin</h1>
+   <h1>winwinwinwin</h1>
+   <h1>winwinwinwin</h1>
+   <h1>winwinwinwin</h1>
+   <h1>winwinwinwin</h1>
+   <h1>winwinwinwin</h1>
+   <h1>winwinwinwin</h1>
+   <h1>winwinwinwin</h1>
+   <h1>winwinwinwin</h1>
 </div>
 
 <div class="wrapper">
 
   <div class="top clearfix">
     <div class="border block1">
-      <h1><span class="count">0</span><span class="outline">/4</span></h1>
-      <h2><span class="outline">people</span></h2>
-      <h2><span class="outline">joining</span></h2>
+      <h1><span class="count">0</span>/4</h1>
+      <h2>people joining</h2>
     </div>
 
 
     <div class="border block2">
       <div class="center">
-        <h2><span class="outline">statement to discuss</span></h2>
-        <h2 class="stmt"></h2>
+        <h2>statement to discuss:</h2>
+        <h5 class="stmt"></h5>
       </div>
     </div>    
   </div>
@@ -240,9 +258,9 @@ line-height: 367px;
   <div id="content"></div>
   
   <div class="border block4">
-    <h5><span class="outline">to join go with your</span> phone</h5>
-    <h5><span class="outline">to</span> winwin.zone</h5>
-    <h5><span class="outline">enjoy !</span></h5>
+    <h5>To join go with your phone to the</h5>
+    <h5>website www.winwin.zone</h5>
+    <h5>enjoy!</h5>
   </div>
 
 </div>
@@ -251,27 +269,26 @@ line-height: 367px;
 
 <template class="people">
   <div class="border block3">
-    <h4><span class="count">0</span><span class="outlinebig">/4</span></h4>
-    <h3><span class="outlinebig">people<br>joining the session </span></h3>
-    <h3>join them</h3>
-    <h3>now!</h3>
+    <h4>0/4</h4>
+    <h3>People joining</h3>
+    <h3>the session</h3>
+    <h3>JOIN THEM</h3>
+    <h3>NOW!!</h3>
   </div>
 </template>
 
 <template class="join">
   <div class="border block3">
-    <h3><span class="outlinebig">to join go</h3>
-    <h3>with your</h3></span>
-    <h3>phone</h3>
-    <h3><span class="outlinebig">to</span></h3>
-    <h3>winwin.zone</h3>
-    <h3><span class="outlinebig">enjoy!</span></h3>
+    <h3>To join go with your</h3>
+    <h3>phone to the website </h3>
+    <h3>www.winwin.zone</h3>
+    <h3>enjoy!</h3>
   </div>
 </template>
 
 <template class="tutorial">
   <div class="border block3">
-    <h3><span class="outlinebig">this is how it works</h3></span>
+    <h3>this is how it works</h3>
     <img src="tut_screen.gif"  >
   </div>
 </template>
@@ -279,8 +296,7 @@ line-height: 367px;
 <template class="stmts">
   <div class="block3">
     <div class="moments">
-    <h5 class="outline">Moments</h5>
-    <h5 class="outline">of consensus</h5>
+    <h3>Moments of consensus</h3>
     <div class="border consensus left"><h2>Flying for family overseas is ok.</h2></div>
     <div class="clearfix"></div>
     <div class="border consensus right"><h2>Flying for family overseas is ok.</h2></div>
@@ -299,6 +315,12 @@ line-height: 367px;
   </div>
 </template>
 
+<template class="todiscuss">  
+  <div class="block3">  
+    <h2>statement to discuss:</h2>
+    <h5 class="stmt"></h5>
+  </div>
+</template>
 <script src="js/screen.js"></script>
 
 </body>
