@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="refresh" content="600">
+<style>
+* {
+}
+body {
+  font-family: monospace;
+  background: #000;
+  color: #fff;
+}
+</style>
+
+</head>
+<body>
+<div id="tree"></div>
+<script>
+(function() {
+
+  function renderBlock(data) {
+    let html = `<p>${data['name']}`
+    for(answer of data['answers']) {
+      html += ` ${answer['val']} ` 
+    }
+    html += '</p>'
+    if(data['children']) {
+      html += '<blockquote>'
+      for(child of data['children']) {
+        html += renderBlock(child)
+      }
+      html += '</blockquote>'
+    }
+    return html 
+  }
+
+  function renderTree(data) {
+    console.log(data["data"])
+    const html = renderBlock(data["data"])
+    document.querySelector('#tree').innerHTML = html
+  }
+
+  const testData = {
+  "data": {
+    "answers": [],
+    "state": 2,
+    "id": 0,
+    "children": [
+      {
+        "answers": [
+          {
+            "val": 1,
+            "user_id": 60290
+          },
+          {
+            "val": 0,
+            "user_id": 60292
+          }
+        ],
+        "state": 3,
+        "id": 1,
+        "children": [
+          {
+            "answers": [
+              {
+                "val": 1,
+                "user_id": 60290
+              },
+              {
+                "val": 1,
+                "user_id": 60292
+              }
+            ],
+            "state": 2,
+            "id": 2,
+            "name": "Foo"
+          },
+          {
+            "answers": [
+              {
+                "val": 0,
+                "user_id": 60290
+              },
+              {
+                "val": 0,
+                "user_id": 60292
+              }
+            ],
+            "state": 2,
+            "id": 3,
+            "name": "Bar"
+          }
+        ],
+        "name": "Most politicians are reliable (or unreliable)"
+      },
+      {
+        "answers": [
+          {
+            "val": 1,
+            "user_id": 60290
+          },
+          {
+            "val": 1,
+            "user_id": 60292
+          }
+        ],
+        "state": 2,
+        "id": 4,
+        "name": "Most politicians are reliable (or unreliable)"
+      }
+    ],
+    "name": "Root"
+  },
+  "cmd": "SCREEN_TREE"
+}
+
+  // Websocket stuff - JBG
+
+  //const ws = new WebSocket('wss://winwin.peerparty.org/ws/')
+  const proto = window.location.protocol === 'https:' ? 'wss' : 'ws'
+  const ws = new WebSocket(`${proto}://${window.location.host}/ws/`)
+
+  ws.onopen = function(e) {
+    console.log('Websocket open.')
+    ws.send(JSON.stringify({ cmd: 'SCREEN_JOIN' }))
+  }
+
+  ws.onclose = function(e) {
+    console.log('Websocket closed.')
+  }
+
+  ws.onerror = function(e) {
+    console.log('Websocket errored.')
+  }
+
+  ws.onmessage = function(e) {
+    console.log(e.data)
+    const res = JSON.parse(e.data)
+    const cmd = res['cmd']
+    console.log("CMD: ", cmd)
+    if(cmd === 'SCREEN_TREE') {
+      renderTree(res)
+    }
+  }
+
+  renderTree(testData)
+
+})()
+</script>
+</body>
+</html>

@@ -273,8 +273,6 @@ img.tutorial {
   margin-top: -30px;
 }
 
-
-
 #noconsensus{
   background-color: #ffff00;
   height: 100vh;
@@ -319,5 +317,9 @@ img.tutorial {
 
 .white {
   background: #fff !important;
+}
+
+.prompt-margin {
+  top: 10px;
 }
 
