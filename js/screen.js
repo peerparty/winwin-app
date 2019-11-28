@@ -28,7 +28,7 @@
   }
 
   function updateStmt(data) {
-    document.querySelector('.block2 .stmt').innerHTML = data.stmt
+    document.querySelector('.block3 .stmt').innerHTML = data.stmt
   }
 
   function showInit(data) {
@@ -72,9 +72,8 @@
     switch(cmd) {
       case 'SCREEN_INIT':
         userCount = res.count
-        updateStmt(res)
         showInit(res)
-        //addContent('tutorial')
+        updateStmt(res)
         break
       case 'SCREEN_USER_COUNT':
         userCount = res.count
