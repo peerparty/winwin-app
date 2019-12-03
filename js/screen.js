@@ -41,7 +41,10 @@
       console.log("updating content", i % classes.length, clazz)
       addContent(clazz)
       if(clazz === 'stmts') updateStmts(data)
-      else if(clazz == 'people') updateCounts(userCount)
+      else if(clazz == 'people') {
+        updateCounts(userCount)
+        updateStmt(data)
+      }
       i++
     }, screenTime)
   }

@@ -20,10 +20,23 @@ body {
 <script>
 (function() {
 
+  function getEmoji(state) {
+    switch(state) {
+      case 1:
+        return '🙋'
+      case 2:
+        return '🌈'
+      case 3:
+        return '↩️ '
+      default: 
+        return '🤔'
+    }
+  }
+
   function renderBlock(data) {
-    let html = `<p>${data['name']}`
+    let html = `<p>└── ${getEmoji(data['state'])} ${data['name']}`
     for(answer of data['answers']) {
-      html += ` ${answer['val']} ` 
+      html += `, ${answer['val'] ? 'Agree' : 'Disagree' }` 
     }
     html += '</p>'
     if(data['children']) {

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+
+html, body {
+  height: 100%;
+  width: 100%;
+}
+
+body {
+  background: #f00;
+}
+
+button {
+  width: 40px;
+  height: 30px;
+}
+
+</style>
+<body>
+<button></button>
+<script>
+
+function buttonAudio() {
+  const audio = new Audio('fg.mpeg')
+  audio.play()
+}
+
+document.querySelector('body').addEventListener('touchend', e => {
+  alert('touch')
+  buttonAudio()
+}, false)
+
+document.querySelector('button').addEventListener('click', e => {
+  alert('button')
+  buttonAudio()
+}, false)
+
+buttonAudio()
+  
+</script>
+</body>
+</html>
+
