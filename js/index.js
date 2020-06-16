@@ -29,8 +29,8 @@
     if(timerId) clearInterval(timerId)
     //const screens = document.querySelectorAll('.screen')
     //screens.forEach(s => s.style.display = 'none')
-    document.querySelector('body').classList.remove('ubermate')
-    document.querySelector('body').classList.remove('consensus')
+    document.querySelector('.background').classList.remove('ubermate')
+    document.querySelector('.background').classList.remove('consensus')
   }
 
   function showScreen(clazz) {
@@ -44,7 +44,7 @@
 
   function handleClick(id, res) {
     // Ubermate then go - JBG
-    document.querySelector('body').classList.add('ubermate')
+    document.querySelector('.background').classList.add('ubermate')
     setTimeout(() => {
       if(id == 'welcome') {
         const sid = getCookie('server_id')
@@ -121,7 +121,7 @@
   function submitPrompt(e) {
     e.preventDefault()
     // Ubermate and go - JBG
-    document.querySelector('body').classList.add('ubermate')
+    document.querySelector('.background').classList.add('ubermate')
     buttonAudio()
     setTimeout(() => {
       sendPrompt(document.querySelector('#content .prompt textarea').value)
@@ -289,7 +289,7 @@
 /*  showTil()*/
 /*  showTutorial()*/
 /*  showReady()*/
-/*  showQuestion()*/
+//  showQuestion("The 1944 Cuba–Florida hurricane was a large Category 4 tropical cyclone that caused widespread damage across the western Caribbean Sea and the Southeastern United States. It inflicted over US$100 million in damage and was responsible for at least 318 deaths. The unprecedented availability of meteorological data during the hurricane marked a turning point in the United States Weather Bureau's ability to forecast tropical cyclones. The system became a tropical storm on October 12 and intensified into a hurricane the next day. On October 18, it made landfall on western Cuba at peak strength with reported winds of 145 mph (230 km/h). At least 300 people were killed in Cuba, which suffered extensive damage from winds and storm surge, especially in the Havana area. Numerous ships sank in Havana Harbor. On October 19 the storm made a final landfall near Sarasota, Florida, as a Category 2 hurricane. Eighteen people were killed in Florida, half of those from the loss of a ship in Tampa Bay. (Full article...) ", 10)
 /*  showWaiting()*/
 /*  showPrompt()*/
 /*  showConsensus()*/
