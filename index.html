@@ -3,9 +3,9 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet" type="text/css" href="css/fonts.css">
-<link rel="stylesheet" type="text/css" href="css/dots.css">
+<link rel="stylesheet" type="text/css" href="css/logo.css">
 <link rel="stylesheet" type="text/css" href="css/index.css">
+<link rel="stylesheet" type="text/css" href="css/load.css">
 </head>
 <body>
 
@@ -17,22 +17,7 @@
 </audio>
 
 <div id="content"></div>
-
- <div class="background">
-   <h3>winwinwinwin</h3>
-   <h3>winwinwinwin</h3>
-   <h3>winwinwinwin</h3>
-   <h3>winwinwinwin</h3>
-   <h3>winwinwinwin</h3>
-   <h3>winwinwinwin</h3>
-   <h3>winwinwinwin</h3>
-   <h3>winwinwinwin</h3>
-   <h3>winwinwinwin</h3>
-   <h3>winwinwinwin</h3>
-   <h3>winwinwinwin</h3>
-   <h3>winwinwinwin</h3>
- </div>
-
+<div class="background"></div>
 
 <div id="templates">
 
@@ -40,29 +25,34 @@
   <div class="welcome vcenter screen">
     <div class="center outline">
       <div class="panel">
-        <h1>Welcome to</h1>
-        <h1>WINWIN.zone</h1>
-        <h1>CLICK</h1>
-        <h1>to join</h1>
-        <button class="buttonagree"><h5>JOIN</h5></button>
+        <h1 class="logo">WIN WIN</h1>
+        <button class="button">
+          <sup>( </sup><span class="white logo">JOIN</span><sub> )</sub>
+        </button>
       </div>        
     </div>
   </div>
 
   <!-- Until next session -->
-  <div class="til vcenter screen">
-    <div class="center outline">
-      <div class="panel">
-        <h1>Take your possession underneith the hood</h1>
-        <h1>with the color:</h1> 
-        <div class="dots bluedot vcenter"><span></span></div>
-      </div>  
-    </div>
+  <div class="til loading vcenter screen">
+    <h1 class="logo nowrap">Patience ... is ... a ...</h1>
+    <h1 class="logo nowrap">... virtue.</h1>
+    <!-- Loading dots -->
+    <span class="dots cf">
+      <div class="dot dot1">⛏️ </div><div class="dot dot2">⛏️ </div><div class="dot dot3">⛏️ </div>
+    </span>
   </div>  
 
   <!-- Tutorial -->
-  <div class="tutorial screen">
-    <div class="panel"><img class="tutorial" src="imgs/tut_mobile.gif"/></div>
+  <div class="tutorial vcenter screen">
+    <div class="center outline">
+      <div class="panel">
+        <h1>Start audio...?</h1>
+      </div>
+      <button class="button agree left">
+        <sup>( </sup><span class="white logo">YES</span><sub> )</sub>
+      </button>
+    </div>
   </div>
 
   <!-- showReady() -->
@@ -70,10 +60,14 @@
     <div class="center">
       <div class="panel outline">
         <div class=" statement">
-          <h1>You are with <span class="count"></span> people do you want to start?
+          <h1>You are with <span class="dynamic count"></span> people do you want to start?</h1>
         </div>
-        <button class="buttonagree"><h5>YES</h5></button>
-        <button class="buttondisagree"><h5>NO</h5></button>
+        <button class="button agree left">
+          <sup>( </sup><span class="white logo">YES</span><sub> )</sub>
+        </button>
+        <button class="button disagree">
+          <sup>( </sup><span class="white logo">NO</span><sub> )</sub>
+        </button>
       </div>
     </div>
   </div>
@@ -85,9 +79,12 @@
 	<div class="statement">
           <h1 class="stmt">Friends should be shamed for flying</h1>
           <h1 class="counter">--:--</h1>
-         
-          <button class="buttonagree"><h5>AGREE</h5></button>
-          <button class="buttondisagree"><h5>DISAGREE</h5></button>
+          <button class="button agree left">
+            <sup>( </sup><span class="white logo">AGREE</span><sub> )</sub>
+          </button>
+          <button class="button disagree">
+            <sup>( </sup><span class="white logo">DISAGREE</span><sub> )</sub>
+          </button>
         </div>
       </div>
     </div>
@@ -96,9 +93,14 @@
   <!-- Waiting -->
   <div class="waiting vcenter screen">
     <div class="center">
-      <div class="panel pleasewait outline">
-        <h1>Waiting for everyone to respond...</h1>
+      <div class="panel pleasewait outline loading">
+        <h1 class="logo">Waiting ... for ... everyone ...</h1>
+        <h1 class="logo">to respond...</h1>
         <div class="panel"><h1 class="counter">--:--</h1></div>
+        <!-- Loading dots -->
+        <span class="dots cf">
+          <div class="dot dot1">⛏️ </div><div class="dot dot2">⛏️ </div><div class="dot dot3">⛏️ </div>
+        </span>
       </div>
     </div>
   </div>  
@@ -107,14 +109,16 @@
   <div class="prompt vcenter screen">
     <div class="center outline">
       <div class="panel">
-        <h1>You responded <span class="answer"></span> to</h1>
+        <h2>You responded <span class="dynamic logo"></span> to</h2>
         <div class="panel vcenter question"><h1></h1></div>
         <div class="panel"><h2 class="counter">--:--</h2></div>
         <div class="panel">
           <textarea placeholder="Please write a statement that explains your answer..."></textarea>
         </div>
         <div class="panel button submit">
-          <button class="buttonagree"><h5>SUBMIT</h5></button>
+          <button class="button agree left">
+            <sup>( </sup><span class="white logo">SUBMIT</span><sub> )</sub>
+          </button>
         </div>
       </div> 
     </div>
@@ -128,7 +132,7 @@
         <h1>consensus!!!!</h1>
         <h4>
           You have reached consensus
-          <span>0</span> time(s) in this
+          <span class="dynamic">0</span> time(s) in this
           discussion.
           Although you might differ in
           opinions on this statement,
@@ -136,7 +140,9 @@
           common ground to make
           decisions together.
         </h4>
-        <button class="buttonagree"><h5>SHOW RESULTS</h5></button>
+        <button class="agree">
+          <sup>( </sup><span class="white logo">RESULTS</span><sub> )</sub>
+        </button>
       </div>
     </div>  
   </div>  
@@ -147,7 +153,9 @@
       <div class="panel">
         <h1>You unfortunately had no moments of consensus.</h1>
         <h1>🙁🙁🙁</h1>
-        <button class="buttonagree"><h5>TRY AGAIN</h5></button>
+        <button class="agree left">
+          <sup>( </sup><span class="white logo">TRY AGAIN</span><sub> )</sub>
+        </button>
       </div>
     </div>
   </div>  
@@ -159,7 +167,9 @@
         <h1 class="msg"></h1>
         <h1>🙁🙁🙁</h1>
         <h1>Join again?</h1>
-        <button class="buttonagree"><h5>JOIN</h5></button>
+        <button class="agree">
+          <sup>( </sup><span class="white logo">YES</span><sub> )</sub>
+        </button>
       </div>
     </div>
   </div>
@@ -179,8 +189,9 @@
 
 <script src="js/audio.js"></script>
 <script src="js/cookies.js"></script>
-<script src="js/swipe.js"></script> 
+<!-- <script src="js/swipe.js"></script> -->
 <script src="js/index.js"></script> 
+<script src="js/logo.js"></script> 
 
 </body>
 </html>

@@ -43,6 +43,7 @@
 }
 
   function handleClick(id, res) {
+    playAudio()
     // Ubermate then go - JBG
     document.querySelector('.background').classList.add('ubermate')
     setTimeout(() => {
@@ -67,37 +68,44 @@
   function showWelcome() {
     cleanup()
     const node = showScreen('welcome') 
-    node.querySelector('.buttonagree').addEventListener('click',
+    node.querySelector('button').addEventListener('click',
       e => handleClick('welcome'))
-      
   }
 
   function showTil() {
     cleanup()
     showScreen('til')
+    /*
     console.log("showTIL", userCount)
     let color = 'blue'
     if(userCount == 1) color = 'red'
     else if(userCount == 2) color = 'green'
     else if(userCount == 3) color = 'white'
     document.querySelector('#content .dots span').classList.add(color)
+    */
   }
+
+  function showLoading() {
+    cleanup()
+    const node = showScreen('loading')
+  } 
 
   function showTutorial() {
     cleanup()
-    showScreen('tutorial')
-    document.querySelector('.tutorial').addEventListener('click', e => {
+    const node = showScreen('tutorial')
+    node.querySelector('button').addEventListener('click', e => {
       const elm = document.querySelector('#bg-audio')
-      elm.paused ? elm.play() : elm.pause()
+      //elm.paused ? elm.play() : elm.pause()
+      showLoading()
     })
   } 
 
   function showReady(count) {
     cleanup()
     const node = showScreen('ready') 
-    node.querySelector('.buttondisagree').addEventListener('click',
+    node.querySelector('.disagree').addEventListener('click',
       e => handleClick('ready', false))
-    node.querySelector('.buttonagree').addEventListener('click',
+    node.querySelector('.agree').addEventListener('click',
       e => handleClick('ready', true))
     document.querySelector('#content .ready span').innerHTML = count
   }  
@@ -107,9 +115,9 @@
     const node = showScreen('question') 
     startTimer(secs, document.querySelector('#content .question .counter'))
     document.querySelector('#content .question .stmt').innerHTML = txt
-    node.querySelector('.buttondisagree').addEventListener('click',
+    node.querySelector('.disagree').addEventListener('click',
       e => handleClick('question', false))
-    node.querySelector('.buttonagree').addEventListener('click',
+    node.querySelector('.agree').addEventListener('click',
       e => handleClick('question', true))
   }  
 
@@ -134,9 +142,9 @@
     cleanup()
     showScreen('prompt') 
     document.querySelector('#content .prompt .question h1').innerHTML = txt 
-    document.querySelector('#content .prompt .answer').innerHTML = ans ? 'Agree' : 'Disagree'
-    document.querySelector('#content .prompt .answer').classList.add(ans ? 'yes' : 'no')
-    document.querySelector('#content .prompt .answer').classList.remove(ans ? 'no' : 'yes')
+    document.querySelector('#content .prompt .dynamic').innerHTML = ans ? 'Agree' : 'Disagree'
+    document.querySelector('#content .prompt .dynamic').classList.add(ans ? 'yes' : 'no')
+    document.querySelector('#content .prompt .dynamic').classList.remove(ans ? 'no' : 'yes')
     document.querySelector('#content .prompt textarea').focus()
     document.querySelector('#content .prompt textarea').addEventListener('keyup', e => { if(e.keyCode === 13) submitPrompt(e) })
     startTimer(secs, document.querySelector('#content .prompt .counter'))
@@ -148,14 +156,14 @@
     const node = showScreen('consensus') 
     document.querySelector('body').classList.add('consensus')
     document.querySelector('#content .consensus span').innerHTML = results.length
-    node.querySelector('.buttonagree').addEventListener('click',
+    node.querySelector('button').addEventListener('click',
       e => handleClick('consensus'))
   }  
 
   function showConsensless() {
     cleanup()
     showScreen('consensless') 
-    document.querySelector('.buttonagree').addEventListener('click',
+    document.querySelector('button').addEventListener('click',
       e => { window.location = window.location })
   } 
 
@@ -174,7 +182,7 @@
     cleanup()
     showScreen('error') 
     document.querySelector('#content .error .msg').innerHTML = msg
-    document.querySelector('.buttonagree').addEventListener('click',
+    document.querySelector('button').addEventListener('click',
       e => { window.location = window.location })
   } 
 
@@ -285,17 +293,15 @@
   }
 
   showWelcome() 
-
-/*  showTil()*/
-/*  showTutorial()*/
-/*  showReady()*/
-//  showQuestion("The 1944 Cuba–Florida hurricane was a large Category 4 tropical cyclone that caused widespread damage across the western Caribbean Sea and the Southeastern United States. It inflicted over US$100 million in damage and was responsible for at least 318 deaths. The unprecedented availability of meteorological data during the hurricane marked a turning point in the United States Weather Bureau's ability to forecast tropical cyclones. The system became a tropical storm on October 12 and intensified into a hurricane the next day. On October 18, it made landfall on western Cuba at peak strength with reported winds of 145 mph (230 km/h). At least 300 people were killed in Cuba, which suffered extensive damage from winds and storm surge, especially in the Havana area. Numerous ships sank in Havana Harbor. On October 19 the storm made a final landfall near Sarasota, Florida, as a Category 2 hurricane. Eighteen people were killed in Florida, half of those from the loss of a ship in Tampa Bay. (Full article...) ", 10)
-/*  showWaiting()*/
-/*  showPrompt()*/
-/*  showConsensus()*/
-/*  showConsensless()*/
-/*  showError()*/ 
-/*  showResults()*/
+//  showTil()
+//  showTutorial()
+//  showReady()
+//  showWaiting()
+//  showPrompt()
+//  showConsensus()
+//  showConsensless()
+//  showError()
+//  showResults()
 
 
 
