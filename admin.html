@@ -11,6 +11,7 @@
 <div id="create">Create</div>
 <textarea></textarea>
 <div id="start">Start</div>
+<div id="stop">Stop</div>
 
 <script>
 
@@ -21,7 +22,9 @@
   // Websocket stuff - JBG
 
   //const ws = new WebSocket('wss://winwin.peerparty.org/ws/')
-  const ws = new WebSocket('ws://localhost:8000/')
+  //const ws = new WebSocket('ws://localhost:8000/')
+  const proto = window.location.protocol === 'https:' ? 'wss' : 'ws'
+  const ws = new WebSocket(`${proto}://${window.location.host}/ws/`)
 
   ws.onopen = function(e) {
     console.log('Websocket open.')
@@ -62,7 +65,15 @@
     }))
   })
 
+  document.querySelector('#stop').addEventListener('click', (e) => {
+    ws.send(JSON.stringify({
+      cmd: 'ADMIN_STOP',
+      id: serverId
+    }))
+  })
+
 })()
+
 </script>
 </body>
 </html>

@@ -103,10 +103,10 @@
   function showReady(count) {
     cleanup()
     const node = showScreen('ready') 
-    node.querySelector('.disagree').addEventListener('click',
-      e => handleClick('ready', false))
-    node.querySelector('.agree').addEventListener('click',
-      e => handleClick('ready', true))
+    //node.querySelector('.disagree').addEventListener('click',
+    //  e => handleClick('ready', false))
+    //node.querySelector('.agree').addEventListener('click',
+    //  e => handleClick('ready', true))
     document.querySelector('#content .ready span').innerHTML = count
   }  
 
@@ -258,6 +258,7 @@
       case 'USER_ANSWERS':
         //startCounter(15)
         //showInstruction("Waiting for everyone to make a choice...")
+        showLoading()
         break
       case 'USER_DONE':
         done = true
