@@ -8,6 +8,7 @@
 * {
 }
 body {
+  font-size: 32px;
   font-family: monospace;
   background: #000;
   color: #fff;
@@ -16,7 +17,7 @@ body {
 
 </head>
 <body>
-<div id="tree"></div>
+<div id="tree">We'll begin soon...</div>
 <script>
 (function() {
 
@@ -52,6 +53,17 @@ body {
   function renderTree(data) {
     console.log(data["data"])
     const html = renderBlock(data["data"])
+    document.querySelector('#tree').innerHTML = html
+  }
+
+  function renderBranch(data) {
+    console.log(data["data"])
+    let branch = data["data"].reduce((t, q) => {
+      q.children = [t]
+      return q
+    })
+    console.log(branch)
+    const html = renderBlock(branch)
     document.querySelector('#tree').innerHTML = html
   }
 
@@ -156,9 +168,13 @@ body {
     if(cmd === 'SCREEN_TREE') {
       renderTree(res)
     }
+    else if(cmd === 'SCREEN_BRANCH') {
+      renderBranch(res)
+    }
+
   }
 
-  renderTree(testData)
+  //renderTree(testData)
 
 })()
 </script>
