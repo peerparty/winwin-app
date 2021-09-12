@@ -3,19 +3,30 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" type="text/css" href="css/logo.css">
+<link rel="stylesheet" type="text/css" href="css/index.css">
 <style>
+body {
+  font-family: 'CMRDD', sans-serif;
+}
 </style>
 </head>
 <body>
 
-<div id="create">Create</div>
-<textarea></textarea>
-<div id="start">Start</div>
-<div id="stop">Stop</div>
+<div class="vcenter screen">
+  <div class="center outline">
+    <h1 class="logo">WINWIN Admin Screen</h1>
+    <textarea placeholder="Enter the starting statement here..."></textarea>
+    <button id="start"><span class="logo white">Start</span></button>
+    <button id="stop"><span class="logo white">Stop</span></button>
+  </div>
+</div>
 
 <script>
 
 (function() {
+
+  const audio = new Audio('WinWin_maindrone_Long.mp3')
 
   let serverId = -1
 
@@ -53,16 +64,13 @@
     }
   }
 
-  document.querySelector('#create').addEventListener('click', (e) => {
-    ws.send(JSON.stringify({ cmd: 'ADMIN_CREATE' }))
-  })
-
   document.querySelector('#start').addEventListener('click', (e) => {
     ws.send(JSON.stringify({
       cmd: 'ADMIN_START',
       id: serverId,
       val: document.querySelector('textarea').value
     }))
+    audio.play()
   })
 
   document.querySelector('#stop').addEventListener('click', (e) => {
@@ -70,11 +78,14 @@
       cmd: 'ADMIN_STOP',
       id: serverId
     }))
+    audio.pause()
+    audio.currentTime = 0
   })
 
 })()
 
 </script>
+<script src="js/logo.js"></script> 
 </body>
 </html>
 

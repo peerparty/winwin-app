@@ -225,7 +225,7 @@
 
   ws.onclose = function(e) {
     console.log('Websocket closed.')
-    if(!done) showError("ERROR: Something has gone terribly wrong.")
+    if(!done) showError("Please wait for instructions.")
   }
 
   ws.onerror = function(e) {
@@ -282,7 +282,7 @@
         showError("Not enough people joined this session.")
         break
       case 'USER_ERROR':
-        showError("ERROR: Something has gone terribly wrong.")
+        showError("Please wait for instructions.")
         break
       case 'USER_FULL':
         showError("Sorry! There is a session in progress please wait for the next.")
