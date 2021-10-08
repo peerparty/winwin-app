@@ -32,17 +32,26 @@ function setDebug() {
 
 setDebug() 
 
+function changeData() {
+  handleData(json[current], json[current-1])
+
+  if(current < json.length - 1) {
+	current++
+  } else {
+	current = 0
+	reset()
+  }
+}
 
 // Change the data
-function changeData() {
-	
+function handleData(msg, prevMsg) {
+       	
 	// Detect structure (tree / branch / consensus) 
-	cmd = json[current].cmd;
+	cmd = msg.cmd;
 
 	// Counter through the cmds
 	if(debug) {
-
-		console.log(json[current])
+		console.log(msg)
 		// document.getElementById('current').innerHTML = "Step " + current 
 	}
 
@@ -50,29 +59,29 @@ function changeData() {
 	switch(cmd) {
 		case 'SCREEN_INIT':
 			// Add the first (?) statement
-			appendLabel(json[current].stmt, rounds)
-			break;	
+			appendLabel(msg.stmt, rounds)
+			break	
 		case 'SCREEN_USER_JOIN':
 			appendBalls(1, rounds, "normal")
-			break;
+			break
 		case 'SCREEN_USER_COUNT':
-			totalParticipants = json[current].count;
-			break;
+			totalParticipants = msg.count
+			break
 		case 'SCREEN_BRANCH':
 			if(document.querySelector('.legend').classList.contains('hidden')) {
 				document.querySelector('.legend').classList.remove('hidden')
 			}
 			// Check whether we switch between branches
-			let prevName;
-			if(json[ current-1 ].data[0] !== undefined) {
-				prevName = json[ current-1 ].data[0].name
+			let prevName
+			if(prevMsg && prevMsg.data[0] !== undefined) {
+				prevName = prevMsg.data[0].name
 			} else {
-				prevName =json[current].data[0].name
+				prevName = msg.data[0].name
 			}
 			
 			// If the current cmd is not the previous one
 			// Or we switch a branch
-			if( cmd !== prevCmd  || json[current].data[0].name !== prevName ) {
+			if( cmd !== prevCmd  || msg.data[0].name !== prevName ) {
 				rounds.innerHTML = "";
 				lastvotesAgree = 0;
 				lastvotesDisagree = 0;
@@ -93,7 +102,7 @@ function changeData() {
 
 			rounds.innerHTML = "";
 			createLevels()
-			recursiveTreeRound(json[current].data, rounds)	
+			recursiveTreeRound(msg.data, rounds)	
 			showOnlyAncestorBranches()
 			break;
 		case 'SCREEN_CONSENSUS':
@@ -103,13 +112,6 @@ function changeData() {
 
 	// Store as previous command 
 	prevCmd = cmd 
-
-	if(current < json.length - 1) {
-		current ++;
-	} else {
-		current = 0;
-		reset()
-	}
 }
 
 
