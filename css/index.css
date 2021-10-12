@@ -4,7 +4,10 @@
 }
 
 html, body {
-  font-family: 'CMRDD', sans-serif;
+  /* font-family: 'CMRDD', sans-serif; */
+  font-family: 'Arial Narrow', sans-serif;
+  background: black;
+  color: white;
 }
 
 body.consensus {
@@ -52,12 +55,12 @@ ul {
 
 button {
   position: relative;
-  background: #000;
+  background: white;
   border: 0;
   border-radius: 15px 15px;
   font-size: 24px;
   padding: 15px 5px 4px 52px;
-  color: #fff;
+  color: black;
   text-decoration: none;
   cursor: pointer;
   margin: 15px;
@@ -119,6 +122,7 @@ button.left {
    
 }
 
+/*
 .background {
   text-overflow:none;
   position:fixed;
@@ -130,6 +134,7 @@ button.left {
   z-index: -1;
   background: #fff top/100% url("../background_noise_block_left.png");
 }
+*/
 
 @keyframes blink {
   67% { opacity: 0 }
@@ -173,8 +178,9 @@ img.tutorial {
 }
 
 .outline {
-  border: 8px #000 solid;
+  border: 1px white solid;
   padding: 10px;
+  border-radius: 20px;
 }
 
 #promptyes {
