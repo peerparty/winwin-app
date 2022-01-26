@@ -71,7 +71,7 @@ body {
       id: serverId,
       val: document.querySelector('textarea').value
     }))
-    audio.play()
+    //audio.play()
   })
 
   document.querySelector('#stop').addEventListener('click', (e) => {
@@ -80,8 +80,8 @@ body {
       cmd: 'ADMIN_STOP',
       id: serverId
     }))
-    audio.pause()
-    audio.currentTime = 0
+    //audio.pause()
+    //audio.currentTime = 0
   })
 
 })()

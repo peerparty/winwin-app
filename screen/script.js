@@ -85,14 +85,14 @@ function handleData(msg, prevMsg) {
 				rounds.innerHTML = "";
 				lastvotesAgree = 0;
 				lastvotesDisagree = 0;
-				createLevels()
-				createBranchRound()
+				createLevels(msg)
+				createBranchRound(msg)
 				showAllBranches()
 
 			} else {
 				// Voting on a branch
 				let currentRound = document.querySelector('.state-1')
-				addBallsWithinRound(currentRound)
+				addBallsWithinRound(msg, currentRound)
 			}
 			break;
 		case 'SCREEN_TREE':
@@ -101,12 +101,12 @@ function handleData(msg, prevMsg) {
 			lastvotesDisagree = 0;
 
 			rounds.innerHTML = "";
-			createLevels()
+			createLevels(msg)
 			recursiveTreeRound(msg.data, rounds)	
 			showOnlyAncestorBranches()
 			break;
 		case 'SCREEN_CONSENSUS':
-			showConsensus() 
+			showConsensus(msg)
 			break;
 	}
 
@@ -213,10 +213,10 @@ function showAllBranches() {
 
 
 // Level creation function
-function createLevels() {
+function createLevels(msg) {
 	level = 1
 	totalLevels = 0;
-	countLevels(json[current].data)
+	countLevels(msg.data)
 	makeLevelsDivs()
 }
 
@@ -263,27 +263,27 @@ function insertAfter(newNode, referenceNode) {
 
 
 // Create a branch round
-function createBranchRound() {
-	for(let i = 0; i < json[current].data.length; i++ ) {
-		if(json[current].data[i].name !== 'Root') {
+function createBranchRound(msg) {
+	for(let i = 0; i < msg.data.length; i++ ) {
+		if(msg.data[i].name !== 'Root') {
 			thisRound = document.createElement('div')
 			thisRound.classList.add('voting-round');
-			thisRound.id =  "statement-" + json[current].data[i].id;
-			thisRound.classList.add("state-" + json[current].data[i].state );
+			thisRound.id =  "statement-" + msg.data[i].id;
+			thisRound.classList.add("state-" + msg.data[i].state );
 
 			// Label
 			let label = document.createElement('div')
 			label.classList.add('label')
-			label.innerHTML = json[current].data[i].name;
+			label.innerHTML = msg.data[i].name;
 			thisRound.append(label);
 
 			// Percentage
-			if(json[current].data[i].state == 4) {
-				let answers = json[current].data[i].answers; 
+			if(msg.data[i].state == 4) {
+				let answers = msg.data[i].answers; 
 				addPercentageBars(answers, thisRound)
-			} else if (json[current].data[i].state == 1) {
+			} else if (msg.data[i].state == 1) {
 				// Set answers
-				let answers = json[current].data[i].answers
+				let answers = msg.data[i].answers
 				checkWhichBalls(answers, thisRound)
 			}
 			// Add it to the right level
@@ -299,11 +299,11 @@ function createBranchRound() {
 
 
 // Show the consensus animations
-function showConsensus() {
+function showConsensus(msg) {
 	rounds.innerHTML = "";
 	let round = document.createElement('div')
 	round.classList.add('voting-round');
-	round.classList.add("state-" + json[current].data.state );
+	round.classList.add("state-" + msg.data.state );
 
 	addTicker("consensus", 20, round)
 
@@ -312,7 +312,7 @@ function showConsensus() {
 
 	let label = document.createElement('div')
 	label.classList.add('label')
-	label.innerHTML = 'CONSENSUS<br>' + json[current].data;
+	label.innerHTML = 'CONSENSUS<br>' + msg.data;
 	consensus.append(label);
 	appendBalls(5, consensus, "normal")
 	round.append(consensus)
@@ -364,8 +364,8 @@ function addPercentageBars(answers, row) {
 }
 
 // Add balls in round
-function addBallsWithinRound(round) {
-	let answers = json[current].data[0].answers
+function addBallsWithinRound(msg, round) {
+	let answers = msg.data[0].answers
 	checkWhichBalls(answers, round)
 }
 
