@@ -1,12 +1,16 @@
 (function() {
 
   let counter = 0
-  let userId = -1
+  let userId = crypto.randomUUID() 
   let userCount = -1
   let serverId = -1
   let timerId
   let results = []
   let done = false
+  //const apiUrl = `${window.location.protocol}://${window.location.host}/api/`
+  const apiUrl = '/api'
+  let lastCmd = ''
+  let lastTxt = ''
 
   function strPadLeft(str, pad, length) {
     return (new Array(length + 1).join(pad) + str).slice(-length)
@@ -40,7 +44,7 @@
     if(content.firstChild) content.removeChild(content.firstChild)
     content.appendChild(tmp)
     return tmp
-}
+  }
 
   function handleClick(id, res) {
     playAudio()
@@ -49,10 +53,11 @@
     setTimeout(() => {
       if(id == 'welcome') {
         const sid = getCookie('server_id')
-        ws.send(JSON.stringify({
+        handleSend({
           cmd: 'USER_HELLO',
+          user_id: userId,
           server_id: sid ? parseInt(sid.split(' ')[0]) : -1,
-        }))
+        })
       }
       else if(id == 'ready') sendResponse(res ? 1 : 0)
       else if(id == 'question') {
@@ -187,58 +192,44 @@
   } 
 
   function sendResponse(res) {
-    ws.send(JSON.stringify({
+    handleSend({
       cmd: 'USER_RESPONSE',
       id: userId,
       server_id: serverId,
       val: res 
-    }))
+    })
   }
 
   function sendAnswer(ans) {
-    ws.send(JSON.stringify({
+    handleSend({
       cmd: 'USER_ANSWER',
       id: userId,
       server_id: serverId,
       val: ans
-    }))
+    })
   }
 
   function sendPrompt(val) {
-    ws.send(JSON.stringify({
+    handleSend({
       cmd: 'USER_PROMPT',
       id: userId,
       server_id: serverId,
       val: val
-    }))
+    })
   }
 
-  // Websocket stuff - JBG
+  // Message processing - JBG
 
-  const proto = window.location.protocol === 'https:' ? 'wss' : 'ws'
-  const ws = new WebSocket(`${proto}://${window.location.host}/ws/`)
-
-  ws.onopen = function(e) {
-    console.log('Websocket open.')
-    //ws.send(JSON.stringify({ cmd: 'USER_HELLO' }))
-  }
-
-  ws.onclose = function(e) {
-    console.log('Websocket closed.')
-    if(!done) showError("Please wait for instructions.")
-  }
-
-  ws.onerror = function(e) {
-    console.log('Websocket errored.')
-  }
-
-  ws.onmessage = function(e) {
-    console.log(e.data)
-    const res = JSON.parse(e.data)
+  function handleMsg(res) {
     const cmd = res['cmd']
+    const txt = res['txt']
+    if(cmd === lastCmd && txt === lastTxt) return
+    console.log(JSON.stringify(res))
+    lastCmd = cmd
+    lastTxt = txt 
     switch(cmd) {
       case 'USER':
-        userId = res['id']
+        //userId = res['id']
         serverId = res['server_id']
         setCookie('server_id', serverId)
         setCookie('user_id', userId)
@@ -270,7 +261,7 @@
       case 'USER_JOIN':
         // Ask user if they would like to force start - JBG
         // Give the newest user a chance to check their color - JBG
-        setTimeout(() => showReady(res['count']), 5000)
+        //setTimeout(() => showReady(res['count']), 5000)
         break
       case 'USER_TUTORIAL':
         showTutorial()
@@ -293,6 +284,64 @@
     }
   }
 
+  function handleSend(data) {
+    const str = JSON.stringify(data)
+    //ws.send(str)
+    console.log('handleSend', data)
+    fetch(`${apiUrl}/`, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: str
+    })
+      .then(response => response.json())
+      .then(data => {
+        console.log('handleSend Success:', data)
+      })
+      .catch((err) => {
+        console.error('Error:', err)
+      })
+  }
+
+  async function handleGet() {
+    if(userId != -1) {
+      //console.log('handleGet', `${apiUrl}/${userId}`)
+      fetch(`${apiUrl}/${userId}`)
+        .then(response => response.json())
+        .then(data => {
+          handleMsg(data)
+        })
+        .catch((err) => {
+          console.error('Error:', err)
+        })
+    }
+  }
+
+  // Websocket stuff - JBG
+
+  const proto = window.location.protocol === 'https:' ? 'wss' : 'ws'
+  const ws = new WebSocket(`${proto}://${window.location.host}/ws/`)
+
+  ws.onopen = function(e) {
+    console.log('Websocket open.')
+  }
+
+  ws.onclose = function(e) {
+    console.log('Websocket closed.')
+    if(!done) showError("Please wait for instructions.")
+  }
+
+  ws.onerror = function(e) {
+    console.log('Websocket errored.')
+  }
+
+  ws.onmessage = function(e) {
+    console.log(e.data)
+    const res = JSON.parse(e.data)
+    handleMsg(res)
+  }
+
   showWelcome() 
 //  showTil()
 //  showTutorial()
@@ -304,8 +353,7 @@
 //  showError()
 //  showResults()
 
-
+  setInterval(handleGet, 1000)
 
 })()
-
 
