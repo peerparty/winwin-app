@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" type="text/css" href="css/logo.css">
+<link rel="stylesheet" type="text/css" href="css/index.css">
+<style>
+body {
+  font-family: 'CMRDD', sans-serif;
+}
+</style>
+</head>
+<body>
+
+<div class="vcenter screen">
+  <div class="center outline">
+    <h1 class="logo">WINWIN Admin Screen</h1>
+    <textarea placeholder="Enter the starting statement here..."></textarea>
+    <button id="start"><span class="logo white">Start</span></button>
+    <button id="stop"><span class="logo white">Stop</span></button>
+  </div>
+</div>
+
+<script>
+
+(function() {
+
+  const audio = new Audio('WinWin_maindrone_Long.mp3')
+
+  let serverId = -1
+
+  // Websocket stuff - JBG
+
+  //const ws = new WebSocket('wss://winwin.peerparty.org/ws/')
+  //const ws = new WebSocket('ws://localhost:8000/')
+  const proto = window.location.protocol === 'https:' ? 'wss' : 'ws'
+  const ws = new WebSocket(`${proto}://${window.location.host}/ws/`)
+
+  ws.onopen = function(e) {
+    console.log('Websocket open.')
+  }
+
+  ws.onclose = function(e) {
+    console.log('Websocket closed.')
+  }
+
+  ws.onerror = function(e) {
+    console.log('Websocket errored.')
+  }
+
+  ws.onmessage = function(e) {
+    console.log(e.data)
+    const res = JSON.parse(e.data)
+    const cmd = res['cmd']
+    switch(cmd) {
+      case 'ADMIN_SERVER_CREATED':
+        serverId = res['id']
+        console.log('SERVER ID:', serverId)
+        break
+      default:
+        console.log('Unknown CMD: ' + cmd)
+        break
+    }
+  }
+
+  document.querySelector('#start').addEventListener('click', (e) => {
+    document.querySelector('#start').style.display = 'none'
+    ws.send(JSON.stringify({
+      cmd: 'ADMIN_START',
+      id: serverId,
+      val: document.querySelector('textarea').value
+    }))
+    //audio.play()
+  })
+
+  document.querySelector('#stop').addEventListener('click', (e) => {
+    document.querySelector('#start').style.display = 'inline'
+    ws.send(JSON.stringify({
+      cmd: 'ADMIN_STOP',
+      id: serverId
+    }))
+    //audio.pause()
+    //audio.currentTime = 0
+  })
+
+})()
+
+</script>
+<script src="js/logo.js"></script> 
+</body>
+</html>
+
+
